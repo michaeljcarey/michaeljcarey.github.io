@@ -9,7 +9,7 @@
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="Welcome to my first post (or is it a page). This first post is an experimental platform for me to learn how to blog. I have put some junk text that i &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,128 @@
       <div class="blog-index">
   
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/08/05/myfirstpost/">My First Post</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-08-05T13:02:04-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:02 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Welcome to my first post (or is it a page).  This first post is an experimental platform for me to learn how to blog.  I have put some junk text that i thought was a comment at the bottom of this post.  As I learn more, I will put at the top.</p>
+
+<p>This is an example of how to place an image:  I will find out why i see a cat in my code block later.</p>
+
+<figure class='code'><figcaption><span>How to place an image in Octopress</span><a href='http://octopress.org/docs/plugins/image-tag/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="o">[</span><span class="k">class</span> <span class="n">names</span><span class="o">]</span> <span class="sr">/path/</span><span class="n">to</span><span class="o">/</span><span class="n">image</span> <span class="o">[</span><span class="n">width</span><span class="o">]</span> <span class="o">[</span><span class="n">height</span><span class="o">]</span> <span class="o">[</span><span class="n">title</span> <span class="n">text</span> <span class="o">[</span><span class="n">alt</span> <span class="n">text</span><span class="o">]]</span> <span class="sx">%}</span>
+</span><span class='line'><span class="sx"><img src="http://placekitten.com/890/280"></span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">left</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">320</span><span class="o">/</span><span class="mi">250</span> <span class="no">Place</span> <span class="no">Kitten</span> <span class="c1">#2 %}</span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">right</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">300</span><span class="o">/</span><span class="mi">500</span> <span class="mi">150</span> <span class="mi">250</span> <span class="no">Place</span> <span class="no">Kitten</span> <span class="c1">#3 %}</span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">right</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">300</span><span class="o">/</span><span class="mi">500</span> <span class="mi">150</span> <span class="mi">250</span> <span class="s1">&#39;Place Kitten #4&#39;</span> <span class="s1">&#39;An image of a very cute kitten&#39;</span> <span class="o">%</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>resulting in:
+<img class="[class names]" src="/path/to/image" title="[width] [height] [title text [alt text]]" >
+<img src="http://placekitten.com/890/280">
+<img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" >
+<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
+<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
+xxx
+You can include your own local snippets this way:
+File /home/mcarey/octopress/source/downloads/code/path/to/file could not be found
+hmmm, to much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</p>
+
+<p>A more slicker way to embed code snippets with Gist.  In this case we get a vdif file gistfile1.diff from the host GitHub.</p>
+
+<div><script src='https://gist.github.com/4321346.js?file=gistfile1.diff'></script>
+<noscript><pre><code>@@ -590,7 +590,7 @@ class SpritesTest &lt; Test::Unit::TestCase
+  it &quot;should generate a sprite from nested folders&quot; do
+    css = render &lt;&lt;-SCSS
+-     @import &quot;nested/*.png&quot;;
++     @import &quot;nested/**/*.png&quot;;
+      @include all-nested-sprites;
+    SCSS
+    assert_correct css, &lt;&lt;-CSS</code></pre></noscript></div>
+
+
+<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.</p>
+
+<figure class='code'><figcaption><span>Discover if a number is prime</span><a href='http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
+</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>some video
+<video width='640' height='320' preload='metadata' controls poster='http://s3.imathis.com/video/zero-to-fancy-buttons.png'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></p>
+
+<p>Before I go, I will need to learn how to commit my changes back to github and prove my is on the internet at <a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a>
+fyi, locally accessed by <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+
+<p>to generate and preview your local changes type:</p>
+
+<figure class='code'><figcaption><span>generate and preview your local changes</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
+</span><span class='line'><span class="n">rake</span> <span class="n">preview</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to publish the changes to github master&hellip;</p>
+
+<figure class='code'><figcaption><span>Commit changes to github</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
+</span><span class='line'><span class="n">rake</span> <span class="n">deploy</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p><!--more--!>
+can you see more?  this is an excerpt</p>
+
+<p>Is there anywhere i can write?</p>
+
+<h2>one category</h2>
+
+<h1>categories: Sass</h1>
+
+<h2>multiple categories</h2>
+
+<h1>categories: [CSS3, Sass, Media Queries]</h1>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
     <a href="/blog/archives">Blog Archives</a>
@@ -77,6 +199,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/05/myfirstpost/">My First Post</a>
+      </li>
     
   </ul>
 </section>

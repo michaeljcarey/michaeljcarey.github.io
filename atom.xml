@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://michaeljcarey.github.io/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-05T18:01:35-07:00</updated>
+  <updated>2015-08-06T18:04:23-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -14,13 +14,67 @@
 
   
   <entry>
-    <title type="html"><![CDATA[My First Post]]></title>
+    <title type="html"><![CDATA[Starting My Blog; Part 1) How to Write a Post]]></title>
     <link href="http://michaeljcarey.github.io/blog/2015/08/05/myfirstpost/"/>
     <updated>2015-08-05T13:02:04-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/05/myfirstpost</id>
-    <content type="html"><![CDATA[<p>Welcome to my first post (or is it a page).  This first post is an experimental platform for me to learn how to blog.  I have put some junk text that i thought was a comment at the bottom of this post.  As I learn more, I will put at the top.</p>
+    <content type="html"><![CDATA[<p>Welcome to my first post (or is it a page).  This post is an experimental platform for me to learn how to blog. In addition, I am able to share my experiences with others who may find themselves walking down similar paths.
+First off, my blogging platform is powered by Octopress and it is being hosted by the github repository.</p>
 
-<p>This is an example of how to place an image:  I will find out why i see a cat in my code block later.</p>
+<p>This article &lsquo;Starting My Blog&rsquo; is divided into parts.
+Part 1) How to Write a Post shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. Part 2) How to Edit Your Blog shows how to change your blog&rsquo;s appearance and add functionality.</p>
+
+<h1>Part 1) How to Write a Post</h1>
+
+<h2>Create a Post</h2>
+
+<p>Open a bash shell and type:</p>
+
+<figure class='code'><figcaption><span>Set some environment variables</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="o">~</span><span class="sr">/.bash_profile</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create a new post:
+Blog posts are located in source/_posts.
+They follow a naming convention as: &lsquo;YYYY-MM-DD-post-title.markdown&rsquo;</p>
+
+<figure class='code'><figcaption><span>Create a New Post</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">new_post</span><span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>EDIT THE POST FILE</h2>
+
+<p>Open the post file located in &lsquo;source/_posts&rsquo; with your favorite editor.  I am currently using gedit.
+The post file has header information in yaml.  You may edit that information.</p>
+
+<p>Categories are used to classify your post.  Search Engines key off of them.</p>
+
+<figure class='code'><figcaption><span>Category Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#one category</span>
+</span><span class='line'><span class="ss">categories</span><span class="p">:</span> <span class="no">Sass</span>
+</span><span class='line'><span class="c1">#multiple categories</span>
+</span><span class='line'><span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="no">CSS3</span><span class="p">,</span> <span class="no">Sass</span><span class="p">,</span> <span class="no">Media</span> <span class="no">Queries</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Place Text</h2>
+
+<p>I have put some junk text that I thought was a comment at the bottom of this post.  As I learn more, I will put at the top.</p>
+
+<h2>Place a Comment</h2>
+
+<h2>what is &lt;! &ndash;more&ndash;!></h2>
+
+<p>Description needed.</p>
+
+<h2>Place an Image</h2>
+
+<p>This is an example of how to place an image:  (the image of the cat in the code block is not intended. I will find out how to prevent that later.</p>
 
 <figure class='code'><figcaption><span>How to place an image in Octopress</span><a href='http://octopress.org/docs/plugins/image-tag/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -35,18 +89,25 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>resulting in:
-<img class="[class names]" src="http://michaeljcarey.github.io/path/to/image" title="[width] [height] [title text [alt text]]" >
+<p>Resulting in:
 <img src="http://placekitten.com/890/280">
 <img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" >
 <img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
 <img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
-xxx
-You can include your own local snippets this way:
-File /home/mcarey/octopress/source/downloads/code/path/to/file could not be found
-hmmm, to much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</p>
+xxx</p>
 
-<p>A more slicker way to embed code snippets with Gist.  In this case we get a vdif file gistfile1.diff from the host GitHub.</p>
+<h2>Place a Video</h2>
+
+<p>Some video
+<video width='640' height='320' preload='metadata' controls poster='http://s3.imathis.com/video/zero-to-fancy-buttons.png'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></p>
+
+<h2>Place Code Blocks (text boxes)</h2>
+
+<p>You can include your own local snippets this way:
+File /home/mcarey/octopress/source/downloads/code/path/to/file could not be found .
+Hmmm, too much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</p>
+
+<p>Another slick way to embed code snippets is with Gist.  In this case we get a vdif file gistfile1.diff from the host GitHub.</p>
 
 <div><script src='https://gist.github.com/4321346.js?file=gistfile1.diff'></script>
 <noscript><pre><code>@@ -590,7 +590,7 @@ class SpritesTest &lt; Test::Unit::TestCase
@@ -74,13 +135,16 @@ hmmm, to much trouble at the moment.  I am imagining that I would have to put my
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>some video
-<video width='640' height='320' preload='metadata' controls poster='http://s3.imathis.com/video/zero-to-fancy-buttons.png'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></p>
+<h2>LAUNCH THE BLOG LOCALLY</h2>
 
-<p>Before I go, I will need to learn how to commit my changes back to github and prove my is on the internet at <a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a>
-fyi, locally accessed by <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<p>Open a bash shell and type:</p>
 
-<p>to generate and preview your local changes type:</p>
+<figure class='code'><figcaption><span>Set some environment variables</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="o">~</span><span class="sr">/.bash_profile</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Generate and preview your local changes at &lsquo;<a href="http://localhost:4000/">http://localhost:4000/</a>&rsquo; type:</p>
 
 <figure class='code'><figcaption><span>generate and preview your local changes</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -89,7 +153,11 @@ fyi, locally accessed by <a href="http://localhost:4000/">http://localhost:4000/
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>to publish the changes to github master&hellip;</p>
+<h2>LAUNCH THE BLOG FOR THE WORLD TO SEE</h2>
+
+<p>Commit my local changes back to my github &lsquo;source branch&rsquo; and move them to the &lsquo;master branch&rsquo;.  Moving them to the master branch causes my blog site to automaticaly update at: &lsquo;<a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a>&rsquo;.</p>
+
+<p>Publish the changes to github master&hellip;</p>
 
 <figure class='code'><figcaption><span>Commit changes to github</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -99,19 +167,6 @@ fyi, locally accessed by <a href="http://localhost:4000/">http://localhost:4000/
 
 
 
-
-<p><!--more--!>
-can you see more?  this is an excerpt</p>
-
-<p>Is there anywhere i can write?</p>
-
-<h2>one category</h2>
-
-<h1>categories: Sass</h1>
-
-<h2>multiple categories</h2>
-
-<h1>categories: [CSS3, Sass, Media Queries]</h1>
 ]]></content>
   </entry>
   

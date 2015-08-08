@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blog | Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-07T17:29:42-07:00</updated>
+  <updated>2015-08-07T18:02:42-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -79,16 +79,22 @@ The post file has header information in yaml.  You may edit that information.</p
 <img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
 <img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
 </code>
-Resulting in:
-<img class="<a" src="href="http://placekitten.com/890/280">http://placekitten.com/890/280</a>">
+Resulting in:</p>
+
+<p><img class="<a" src="href="http://placekitten.com/890/280">http://placekitten.com/890/280</a>">
 <img class="left <a" src="href="http://placekitten.com/320/250">http://placekitten.com/320/250</a>" title="Place Kitten #2" >
 <img class="right <a" src="href="http://placekitten.com/300/500">http://placekitten.com/300/500</a>" width="150" height="250" title="Place Kitten #3" >
 <img class="right <a" src="href="http://placekitten.com/300/500">http://placekitten.com/300/500</a>" width="150" height="250" title="&lsquo;Place Kitten #4&rsquo; &lsquo;An image of a very cute kitten&rsquo;" >
-xxx</p>
+I am having trouble placing all these cats around.  I will learn how to heard these things as soon as I catch my breath.</p>
 
 <h2>Place a Video</h2>
 
-<p>Some video
+<p>If you want to place a video, its like so;
+<code>ruby Syntax for placing a video https://michaeljcarey.github.io Source Article
+<video width='640' height='320' preload='metadata' controls poster='http://s3.imathis.com/video/zero-to-fancy-buttons.png'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video>
+</code></p>
+
+<p>And here is how it looks.
 <video width='640' height='320' preload='metadata' controls poster='http://s3.imathis.com/video/zero-to-fancy-buttons.png">http://s3.imathis.com/video/zero-to-fancy-buttons.png</a>'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4">http://s3.imathis.com/video/zero-to-fancy-buttons.mp4</a>' ></video></p>
 
 <h2>Place Code Blocks (text boxes)</h2>

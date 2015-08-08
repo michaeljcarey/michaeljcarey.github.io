@@ -4,7 +4,7 @@
   <title><![CDATA[Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-07T18:26:48-07:00</updated>
+  <updated>2015-08-07T18:27:59-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -22,7 +22,8 @@
 
 <h2>Configuring Octopress</h2>
 
-<p>When you first start with Octopress, you get a pretty basic layout.</p>
+<p>When you first start with Octopress, you get a pretty basic layout.<br/>
+<img src="http://michaeljcarey.github.io/images/custom/Selection_002.png" width="890" height="280"></p>
 
 <p>How do you change the boarder?  How to you add to the Menu Bar and the right column where &lsquo;Recent Posts&rsquo; resides?
 What are Templates and Themes and how are they and rss feeds used?

@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Blog | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Blog | Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-06T18:04:23-07:00</updated>
+  <updated>2015-08-07T17:29:42-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Michael J Carey]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[Starting My Blog; Part 1) How to Write a Post]]></title>
+    <title type="html"><![CDATA[Blogging Basics I, How to Create a Post on Your Octopress Blog]]></title>
     <link href="http://michaeljcarey.github.io/blog/2015/08/05/myfirstpost/"/>
     <updated>2015-08-05T13:02:04-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/05/myfirstpost</id>
     <content type="html"><![CDATA[<p>Welcome to my first post (or is it a page).  This post is an experimental platform for me to learn how to blog. In addition, I am able to share my experiences with others who may find themselves walking down similar paths.
 First off, my blogging platform is powered by Octopress and it is being hosted by the github repository.</p>
 
-<p>This article &lsquo;Starting My Blog&rsquo; is divided into parts.
-Part 1) How to Write a Post shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. Part 2) How to Edit Your Blog shows how to change your blog&rsquo;s appearance and add functionality.</p>
-
-<h1>Part 1) How to Write a Post</h1>
+<p>This article &ldquo;How to Create a Post on Your Octopress Blog&rdquo; shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. The follow up article &ldquo;How to Configure and Edit Your Blog Site&rdquo; shows how to change your blog&rsquo;s appearance and add functionality.</p>
 
 <h2>Create a Post</h2>
 
@@ -45,7 +42,7 @@ rake new_post["title"]
 <p>Open the post file located in &lsquo;source/_posts&rsquo; with your favorite editor.  I am currently using gedit.
 The post file has header information in yaml.  You may edit that information.</p>
 
-<p>Categories are used to classify your post.  Search Engines key off of them.
+<p>Categories are used to classify your post.  Search Engines key off of them.  You can place the categories in the side bar and you can filter your posts by category
 <figure class='code'><figcaption><span>Category Syntax <a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a> Source Article</p></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -96,12 +93,68 @@ xxx</p>
 
 <h2>Place Code Blocks (text boxes)</h2>
 
-<p>You can include your own local snippets this way:
-File /home/mcarey/octopress/source/downloads/code/path/to/file could not be found .
-Hmmm, too much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</p>
-
-<p>Another slick way to embed code snippets is with Gist.  In this case we get a vdif file gistfile1.diff from the host GitHub.
-<div><script src='https://gist.github.com/4321346.js?file=gistfile1.diff'></script>
+<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.
+<code>ruby Discover if a number is prime http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/ Source Article
+class Fixnum
+  def prime?
+    ('1' * self) !~ /^1?$|^(11+?)\1+$/
+  end
+end
+</code>
+The box is coded as such:
+<figure class='code'><figcaption><span>Easy Code Block Syntax <a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a> Source Article</p></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="sb">``` [language] [title] [url] [link text]&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sb">&lt;h1&gt;class Fixnum&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sb">&lt;h1&gt;def prime?&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sb">&lt;h1&gt;(&amp;lsquo;1&amp;rsquo; * self) !~ /^1?$|^(11+?)</span><span class="se">\1</span><span class="sb">+$/&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sb">&lt;h1&gt;end&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sb">&lt;h1&gt;end&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sb">&lt;h1&gt;```</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="sr">You can include your own local snippets this way:</span>
+</span><span class='line'><span class="sr">File /home/mcarey/octopress/source/downloads/code/class="sx"> could not be found .</span>
+</span><span class='line'><span class="sx">Hmmm, too much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">Another slick way to embed code snippets is with Gist.  In this case we get a vdif file gistfile1.diff from the host GitHub.</span>
+</span><span class='line'><span class="sx"><div><script src='https://gist.github.com/4321346.js?file=gistfile1.diff'></script>
 <noscript><pre><code>@@ -590,7 +590,7 @@ class SpritesTest &lt; Test::Unit::TestCase
   it &quot;should generate a sprite from nested folders&quot; do
     css = render &lt;&lt;-SCSS
@@ -110,23 +163,15 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
       @include all-nested-sprites;
     SCSS
     assert_correct css, &lt;&lt;-CSS</code></pre></noscript></div>
-</p>
-
-<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.
-<code>ruby Discover if a number is prime http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/ Source Article
-class Fixnum
-  def prime?
-    ('1' * self) !~ /^1?$|^(11+?)\1+$/
-  end
-end
-</code></p>
-
-<h2>LAUNCH THE BLOG LOCALLY</h2>
-
-<p>Open a bash shell and type:
-<code>ruby Set some environment variables https://michaeljcarey.github.io Source Article
-source ~/.bash_profile
-</code></p>
+</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">##LAUNCH THE BLOG LOCALLY</span>
+</span><span class='line'><span class="no">Open</span> <span class="n">a</span> <span class="n">bash</span> <span class="n">shell</span> <span class="ow">and</span> <span class="ss">type</span><span class="p">:</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">source</span> <span class="o">~</span><span class="sr">/.bash_profile</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Generate and preview your local changes at &lsquo;<a href="http://localhost:4000/">http://localhost:4000/</a>&rsquo; type:
 <code>ruby generate and preview your local changes https://michaeljcarey.github.io Source Article

@@ -1,30 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-06T18:04:23-07:00</updated>
+  <updated>2015-08-07T17:29:42-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Michael J Carey]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[Starting My Blog; Part 1) How to Write a Post]]></title>
+    <title type="html"><![CDATA[Blogging Basics II, How to Configure and Edit Your Blog Site in Octopress]]></title>
+    <link href="http://michaeljcarey.github.io/blog/2015/08/06/startingmyblog2howtowriteapost/"/>
+    <updated>2015-08-06T18:08:29-07:00</updated>
+    <id>http://michaeljcarey.github.io/blog/2015/08/06/startingmyblog2howtowriteapost</id>
+    <content type="html"><![CDATA[<p>Welcome to Part 2 of &lsquo;Blogging Basics - How to Configure and Edit Your Blog Site in Octopress&rsquo;.  Now that we have successfully set up a Basic Octopress Blog site and written our first posts, we are ready to tune up the Blog site and add more functionality.</p>
+
+<h2>Configuring Octopress</h2>
+
+<p>When you first start with Octopress, you get a pretty basic layout.<br/>
+<img src="http://michaeljcarey.github.io/images/custom/Selection_002.png" width="890" height="280"></p>
+
+<p>How do you change the boarder?  How to you add to the Menu Bar and the right column where &lsquo;Recent Posts&rsquo; resides?
+What are Templates and Themes and how are they and rss feeds used?
+I found that and more on at Octopress' docs &ldquo;Configuring Octopress&rdquo; <a href="http://http://octopress.org/docs/configuring/">http://http://octopress.org/docs/configuring/</a> to be quite informative.  I followed that doc and others to get my blog to look professional.</p>
+
+<h2>Add Menus</h2>
+
+<h2>Add ???</h2>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging Basics I, How to Create a Post on Your Octopress Blog]]></title>
     <link href="http://michaeljcarey.github.io/blog/2015/08/05/myfirstpost/"/>
     <updated>2015-08-05T13:02:04-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/05/myfirstpost</id>
     <content type="html"><![CDATA[<p>Welcome to my first post (or is it a page).  This post is an experimental platform for me to learn how to blog. In addition, I am able to share my experiences with others who may find themselves walking down similar paths.
 First off, my blogging platform is powered by Octopress and it is being hosted by the github repository.</p>
 
-<p>This article &lsquo;Starting My Blog&rsquo; is divided into parts.
-Part 1) How to Write a Post shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. Part 2) How to Edit Your Blog shows how to change your blog&rsquo;s appearance and add functionality.</p>
-
-<h1>Part 1) How to Write a Post</h1>
+<p>This article &ldquo;How to Create a Post on Your Octopress Blog&rdquo; shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. The follow up article &ldquo;How to Configure and Edit Your Blog Site&rdquo; shows how to change your blog&rsquo;s appearance and add functionality.</p>
 
 <h2>Create a Post</h2>
 
@@ -49,7 +68,7 @@ They follow a naming convention as: &lsquo;YYYY-MM-DD-post-title.markdown&rsquo;
 <p>Open the post file located in &lsquo;source/_posts&rsquo; with your favorite editor.  I am currently using gedit.
 The post file has header information in yaml.  You may edit that information.</p>
 
-<p>Categories are used to classify your post.  Search Engines key off of them.</p>
+<p>Categories are used to classify your post.  Search Engines key off of them.  You can place the categories in the side bar and you can filter your posts by category</p>
 
 <figure class='code'><figcaption><span>Category Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -103,6 +122,40 @@ xxx</p>
 
 <h2>Place Code Blocks (text boxes)</h2>
 
+<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.</p>
+
+<figure class='code'><figcaption><span>Discover if a number is prime</span><a href='http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
+</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The box is coded as such:</p>
+
+<figure class='code'><figcaption><span>Easy Code Block Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#``` [language] [title] [url] [link text]</span>
+</span><span class='line'><span class="c1">#class Fixnum</span>
+</span><span class='line'><span class="c1">#  def prime?</span>
+</span><span class='line'><span class="c1">#    (&#39;1&#39; * self) !~ /^1?$|^(11+?)\1+$/</span>
+</span><span class='line'><span class="c1">#  end</span>
+</span><span class='line'><span class="c1">#end</span>
+</span><span class='line'><span class="c1">#```</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <p>You can include your own local snippets this way:
 File /home/mcarey/octopress/source/downloads/code/path/to/file could not be found .
 Hmmm, too much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</p>
@@ -118,21 +171,6 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
       @include all-nested-sprites;
     SCSS
     assert_correct css, &lt;&lt;-CSS</code></pre></noscript></div>
-
-
-<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.</p>
-
-<figure class='code'><figcaption><span>Discover if a number is prime</span><a href='http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
-</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>LAUNCH THE BLOG LOCALLY</h2>

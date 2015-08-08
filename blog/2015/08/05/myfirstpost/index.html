@@ -5,8 +5,8 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Starting My Blog; Part 1) How to Write a Post - My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Blogging Basics I, How to Create a Post on Your Octopress Blog - Michael J Carey</title>
+  <meta name="author" content="Michael J Carey">
 
   
   <meta name="description" content="Welcome to my first post (or is it a page). This post is an experimental platform for me to learn how to blog. In addition, I am able to share my &hellip;">
@@ -21,7 +21,7 @@
   <link rel="canonical" href="http://michaeljcarey.github.io/blog/2015/08/05/myfirstpost/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Michael J Carey" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -36,9 +36,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">Michael J Carey</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>Programming my life away and enjoying the ride</h2>
   
 </hgroup>
 
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Starting My Blog; Part 1) How to Write a Post</h1>
+      <h1 class="entry-title">Blogging Basics I, How to Create a Post on Your Octopress Blog</h1>
     
     
       <p class="meta">
@@ -87,10 +87,7 @@
 <div class="entry-content"><p>Welcome to my first post (or is it a page).  This post is an experimental platform for me to learn how to blog. In addition, I am able to share my experiences with others who may find themselves walking down similar paths.
 First off, my blogging platform is powered by Octopress and it is being hosted by the github repository.</p>
 
-<p>This article &lsquo;Starting My Blog&rsquo; is divided into parts.
-Part 1) How to Write a Post shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. Part 2) How to Edit Your Blog shows how to change your blog&rsquo;s appearance and add functionality.</p>
-
-<h1>Part 1) How to Write a Post</h1>
+<p>This article &ldquo;How to Create a Post on Your Octopress Blog&rdquo; shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. The follow up article &ldquo;How to Configure and Edit Your Blog Site&rdquo; shows how to change your blog&rsquo;s appearance and add functionality.</p>
 
 <h2>Create a Post</h2>
 
@@ -115,7 +112,7 @@ They follow a naming convention as: &lsquo;YYYY-MM-DD-post-title.markdown&rsquo;
 <p>Open the post file located in &lsquo;source/_posts&rsquo; with your favorite editor.  I am currently using gedit.
 The post file has header information in yaml.  You may edit that information.</p>
 
-<p>Categories are used to classify your post.  Search Engines key off of them.</p>
+<p>Categories are used to classify your post.  Search Engines key off of them.  You can place the categories in the side bar and you can filter your posts by category</p>
 
 <figure class='code'><figcaption><span>Category Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -169,6 +166,40 @@ xxx</p>
 
 <h2>Place Code Blocks (text boxes)</h2>
 
+<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.</p>
+
+<figure class='code'><figcaption><span>Discover if a number is prime</span><a href='http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
+</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The box is coded as such:</p>
+
+<figure class='code'><figcaption><span>Easy Code Block Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#``` [language] [title] [url] [link text]</span>
+</span><span class='line'><span class="c1">#class Fixnum</span>
+</span><span class='line'><span class="c1">#  def prime?</span>
+</span><span class='line'><span class="c1">#    (&#39;1&#39; * self) !~ /^1?$|^(11+?)\1+$/</span>
+</span><span class='line'><span class="c1">#  end</span>
+</span><span class='line'><span class="c1">#end</span>
+</span><span class='line'><span class="c1">#```</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <p>You can include your own local snippets this way:
 File /home/mcarey/octopress/source/downloads/code/path/to/file could not be found .
 Hmmm, too much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</p>
@@ -184,21 +215,6 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
       @include all-nested-sprites;
     SCSS
     assert_correct css, &lt;&lt;-CSS</code></pre></noscript></div>
-
-
-<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.</p>
-
-<figure class='code'><figcaption><span>Discover if a number is prime</span><a href='http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
-</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>LAUNCH THE BLOG LOCALLY</h2>
@@ -266,11 +282,15 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
   
   
   
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
 
     
     <p class="meta">
       
+      
+        <a class="basic-alignment right" href="/blog/2015/08/06/startingmyblog2howtowriteapost/" title="Next Post: Blogging Basics II, How to Configure and Edit Your Blog Site in Octopress">Blogging Basics II, How to Configure and Edit Your Blog Site in Octopress &raquo;</a>
       
     </p>
   </footer>
@@ -280,16 +300,27 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
 
 <aside class="sidebar">
   
-    <section>
+    <h2>Michael J Carey<h2/>
+<h4>Software Developer</h4>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/08/05/myfirstpost/">Starting My Blog; Part 1) How to Write a Post</a>
+        <a href="/blog/2015/08/06/startingmyblog2howtowriteapost/">Blogging Basics II, How to Configure and Edit Your Blog Site in Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/05/myfirstpost/">Blogging Basics I, How to Create a Post on Your Octopress Blog</a>
       </li>
     
   </ul>
 </section>
+<h3>Categories</h3>
+<p>Software</p>
+<p>Blogging</p>
+<p>Embedded</p>
+
 
 
 
@@ -302,7 +333,7 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Your Name -
+  Copyright &copy; 2015 - Michael J Carey -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -310,6 +341,15 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
   
 
 
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-07T18:28:33-07:00</updated>
+  <updated>2015-08-08T18:24:08-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -33,15 +33,124 @@ I found that and more on at Octopress' docs &ldquo;Configuring Octopress&rdquo; 
 
 <h2>Change the banner</h2>
 
-<p>tbd</p>
+<p>In _config.yml, edit here to change title, author &amp;c.x</p>
+
+<figure class='code'><figcaption><span>_config.yml</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># ----------------------- #</span>
+</span><span class='line'><span class="c1">#      Main Configs       #</span>
+</span><span class='line'><span class="c1"># ----------------------- #</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">url</span><span class="p">:</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//mi</span><span class="n">chaeljcarey</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
+</span><span class='line'><span class="ss">title</span><span class="p">:</span> <span class="no">Michael</span> <span class="n">J</span> <span class="no">Carey</span>
+</span><span class='line'><span class="ss">subtitle</span><span class="p">:</span> <span class="no">Programming</span> <span class="n">my</span> <span class="n">life</span> <span class="n">away</span> <span class="ow">and</span> <span class="n">enjoying</span> <span class="n">the</span> <span class="n">ride</span>
+</span><span class='line'><span class="ss">author</span><span class="p">:</span> <span class="no">Michael</span> <span class="n">J</span> <span class="no">Carey</span>
+</span><span class='line'><span class="ss">simple_search</span><span class="p">:</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">search</span>
+</span><span class='line'><span class="ss">description</span><span class="p">:</span> <span class="no">Programming</span> <span class="k">for</span> <span class="n">motion</span><span class="p">,</span> <span class="n">control</span> <span class="ow">and</span> <span class="n">robotics</span> <span class="k">in</span> <span class="n">the</span> <span class="n">hobby</span> <span class="ow">and</span> <span class="n">industrial</span> <span class="n">sectors</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>Add Items to the Menu Bar</h2>
 
-<p>tbd</p>
+<p>Lets put an &lsquo;About&rsquo; Item on the menu bar.</p>
 
-<h2>Add Items to the side column</h2>
+<p>In the root directory, create a folder with the name &lsquo;about&rsquo; and then add a index.markdown file.</p>
 
-<p>tbd</p>
+<p>In the bash shell, add a page and name it about.  It will create a directory off root with that name.  The file /about/index.markdown has also been created.</p>
+
+<figure class='code'><figcaption><span>Create a Page</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">new_page</span><span class="o">[</span><span class="n">about</span><span class="o">]</span>
+</span><span class='line'><span class="c1"># creates /source/about/index.markdown</span>
+</span><span class='line'><span class="n">vi</span> <span class="n">index</span><span class="o">.</span><span class="n">markdown</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Edit the index.markdown file.</p>
+
+<figure class='code'><figcaption><span>/about/index.markdown</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">---</span>
+</span><span class='line'><span class="ss">layout</span><span class="p">:</span> <span class="n">page</span>
+</span><span class='line'><span class="ss">title</span><span class="p">:</span> <span class="s2">&quot;About Michael J Carey&quot;</span>
+</span><span class='line'><span class="ss">comments</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'><span class="ss">sharing</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'><span class="ss">footer</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'><span class="o">---</span>
+</span><span class='line'><span class="n">I</span> <span class="n">like</span> <span class="n">chocolate</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now add the page to the Menu Bar.  Edit the navigation.html in /source/_includes/custom</p>
+
+<figure class='code'><figcaption><span>Add Page to the Menu Bar</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cd</span> <span class="n">source</span><span class="o">/</span><span class="n">_includes</span><span class="o">/</span><span class="n">custom</span>
+</span><span class='line'><span class="n">vi</span> <span class="n">navigation</span><span class="o">.</span><span class="n">html</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So that it includes the about group.</p>
+
+<figure class='code'><figcaption><span>navigation.html</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;main-navigation&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Add a Group to the Side Column</h2>
+
+<p>Lets say we wanted to add a group onto the side column.  In this example our group is called &lsquo;categories&rsquo; which contain a set of category(s).
+Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
+
+<figure class='code'><figcaption><span>Create and edit 'source/_includes/custom/asides/categories.html'</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cd</span> <span class="n">source</span><span class="o">/</span><span class="n">_includes</span><span class="o">/</span><span class="n">custom</span><span class="o">/</span><span class="n">asides</span>
+</span><span class='line'><span class="n">vi</span> <span class="n">categories</span><span class="o">.</span><span class="n">html</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Add header and entries as shown</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="no">Categories</span><span class="o">&lt;</span><span class="sr">/h3&gt;</span>
+</span><span class='line'><span class="sr">&lt;p&gt;Software&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="no">Blogging</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'><span class="sr">&lt;p&gt;Embedded&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Edit your _config.yml file and find the line with default_asides and add /custom/asides/categories.html</p>
+
+<figure class='code'><figcaption><span>Add Group into Side Column (asides)</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">custom</span><span class="o">/</span><span class="n">asides</span><span class="o">/</span><span class="n">categories</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.]</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>Change a Theme</h2>
 

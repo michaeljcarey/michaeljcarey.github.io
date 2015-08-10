@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Michael J Carey</title>
+  <title>Index From Source Dir - Michael J Carey</title>
   <meta name="author" content="Michael J Carey">
 
   
-  <meta name="description" content="Welcome to Part 2 of &lsquo;Blogging Basics - How to Configure and Edit Your Blog Site in Octopress&rsquo;. Now that we have successfully set up a &hellip;">
+  <meta name="description" content="Index From Source Dir Aug 9th, 2015 12:51 pm Aug 9th, 2015 12:51 pm Tweet Michael J Carey
+Software Developer Recent Posts Blogging Basics II, How to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -26,7 +27,9 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
@@ -35,6 +38,7 @@
 </head>
 
 <body   >
+  
   <header role="banner"><hgroup>
   <h1><a href="/">Michael J Carey</a></h1>
   
@@ -56,395 +60,58 @@
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
+  <li><a href="/blog">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/about">About</a></li>
+  <li><a href="/blog/about">About</a></li>
 </ul>
 
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/08/06/startingmyblog2howtowriteapost/">Blogging Basics II, How to Configure and Edit Your Blog Site in Octopress</a></h1>
-    
-    
+    <h1 class="entry-title">Index From Source Dir</h1>
+    <p class="meta">
+
+
+
+
+<time class='entry-date' datetime='2015-08-09T12:51:00-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:51 pm</span></time></p>
+  </header>
+  
+  
+  
+    <footer>
       <p class="meta">
         
+        
 
 
 
 
-<time class='entry-date' datetime='2015-08-06T18:08:29-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>6:08 pm</span></time>
+<time class='entry-date' datetime='2015-08-09T12:51:00-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:51 pm</span></time>
         
       </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Welcome to Part 2 of &lsquo;Blogging Basics - How to Configure and Edit Your Blog Site in Octopress&rsquo;.  Now that we have successfully set up a Basic Octopress Blog site and written our first posts, we are ready to tune up the Blog site and add more functionality.</p>
-
-<h2>Configuring Octopress</h2>
-
-<p>When you first start with Octopress, you get a pretty basic layout.<br/>
-<img src="/images/custom/Selection_002.png" width="890" height="280"></p>
-
-<p>How do you change the boarder?  How to you add to the Menu Bar and the right column where &lsquo;Recent Posts&rsquo; resides?
-What are Templates and Themes and how are they and rss feeds used?
-I found that and more on at Octopress' docs &ldquo;Configuring Octopress&rdquo; <a href="http://http://octopress.org/docs/configuring/">http://http://octopress.org/docs/configuring/</a> to be quite informative.  I followed that doc and others to get my blog to look professional.</p>
-
-<p>These are some of the cool things I learned:</p>
-
-<h2>Change the banner</h2>
-
-<p>In _config.yml, edit here to change title, author &amp;c.x</p>
-
-<figure class='code'><figcaption><span>_config.yml</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># ----------------------- #</span>
-</span><span class='line'><span class="c1">#      Main Configs       #</span>
-</span><span class='line'><span class="c1"># ----------------------- #</span>
-</span><span class='line'>
-</span><span class='line'><span class="ss">url</span><span class="p">:</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//mi</span><span class="n">chaeljcarey</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
-</span><span class='line'><span class="ss">title</span><span class="p">:</span> <span class="no">Michael</span> <span class="n">J</span> <span class="no">Carey</span>
-</span><span class='line'><span class="ss">subtitle</span><span class="p">:</span> <span class="no">Programming</span> <span class="n">my</span> <span class="n">life</span> <span class="n">away</span> <span class="ow">and</span> <span class="n">enjoying</span> <span class="n">the</span> <span class="n">ride</span>
-</span><span class='line'><span class="ss">author</span><span class="p">:</span> <span class="no">Michael</span> <span class="n">J</span> <span class="no">Carey</span>
-</span><span class='line'><span class="ss">simple_search</span><span class="p">:</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">search</span>
-</span><span class='line'><span class="ss">description</span><span class="p">:</span> <span class="no">Programming</span> <span class="k">for</span> <span class="n">motion</span><span class="p">,</span> <span class="n">control</span> <span class="ow">and</span> <span class="n">robotics</span> <span class="k">in</span> <span class="n">the</span> <span class="n">hobby</span> <span class="ow">and</span> <span class="n">industrial</span> <span class="n">sectors</span><span class="o">.</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Add Items to the Menu Bar</h2>
-
-<p>Lets put an &lsquo;About&rsquo; Item on the menu bar.</p>
-
-<p>In the root directory, create a folder with the name &lsquo;about&rsquo; and then add a index.markdown file.</p>
-
-<p>In the bash shell, add a page and name it about.  It will create a directory off root with that name.  The file /about/index.markdown has also been created.</p>
-
-<figure class='code'><figcaption><span>Create a Page</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">new_page</span><span class="o">[</span><span class="n">about</span><span class="o">]</span>
-</span><span class='line'><span class="c1"># creates /source/about/index.markdown</span>
-</span><span class='line'><span class="n">vi</span> <span class="n">index</span><span class="o">.</span><span class="n">markdown</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Edit the index.markdown file.</p>
-
-<figure class='code'><figcaption><span>/about/index.markdown</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">---</span>
-</span><span class='line'><span class="ss">layout</span><span class="p">:</span> <span class="n">page</span>
-</span><span class='line'><span class="ss">title</span><span class="p">:</span> <span class="s2">&quot;About Michael J Carey&quot;</span>
-</span><span class='line'><span class="ss">comments</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'><span class="ss">sharing</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'><span class="ss">footer</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'><span class="o">---</span>
-</span><span class='line'><span class="n">I</span> <span class="n">like</span> <span class="n">chocolate</span><span class="o">.</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now add the page to the Menu Bar.  Edit the navigation.html in /source/_includes/custom</p>
-
-<figure class='code'><figcaption><span>Add Page to the Menu Bar</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cd</span> <span class="n">source</span><span class="o">/</span><span class="n">_includes</span><span class="o">/</span><span class="n">custom</span>
-</span><span class='line'><span class="n">vi</span> <span class="n">navigation</span><span class="o">.</span><span class="n">html</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>So that it includes the about group.</p>
-
-<figure class='code'><figcaption><span>navigation.html</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;main-navigation&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Add a Group to the Side Column</h2>
-
-<p>Lets say we wanted to add a group onto the side column.  In this example our group is called &lsquo;categories&rsquo; which contain a set of category(s).
-Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
-
-<figure class='code'><figcaption><span>Create and edit 'source/_includes/custom/asides/categories.html'</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cd</span> <span class="n">source</span><span class="o">/</span><span class="n">_includes</span><span class="o">/</span><span class="n">custom</span><span class="o">/</span><span class="n">asides</span>
-</span><span class='line'><span class="n">vi</span> <span class="n">categories</span><span class="o">.</span><span class="n">html</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span>Add header and entries as shown</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="no">Categories</span><span class="o">&lt;</span><span class="sr">/h3&gt;</span>
-</span><span class='line'><span class="sr">&lt;p&gt;Software&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="no">Blogging</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'><span class="sr">&lt;p&gt;Embedded&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Edit your _config.yml file and find the line with default_asides and add /custom/asides/categories.html</p>
-
-<figure class='code'><figcaption><span>Add Group into Side Column (asides)</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">custom</span><span class="o">/</span><span class="n">asides</span><span class="o">/</span><span class="n">categories</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Change a Theme</h2>
-
-<p>tbd</p>
-
-<h2>Use a Plugin</h2>
-
-<p>tbd</p>
-
-<h2>look into Extended Validation Certificate</h2>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/08/05/myfirstpost/">Blogging Basics I, How to Create a Post on Your Octopress Blog</a></h1>
-    
-    
-      <p class="meta">
-        
+        <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://michaeljcarey.github.io/index.html" data-via="" data-counturl="http://michaeljcarey.github.io/index.html" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
 
-
-
-
-<time class='entry-date' datetime='2015-08-05T13:02:04-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:02 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Welcome to my first post (or is it a page).  This post is an experimental platform for me to learn how to blog. In addition, I am able to share my experiences with others who may find themselves walking down similar paths.
-First off, my blogging platform is powered by Octopress and it is being hosted by the github repository.</p>
-
-<p>This article &ldquo;How to Create a Post on Your Octopress Blog&rdquo; shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. The follow up article &ldquo;How to Configure and Edit Your Blog Site&rdquo; shows how to change your blog&rsquo;s appearance and add functionality.</p>
-
-<h2>Create a Post</h2>
-
-<p>Open a bash shell and type:</p>
-
-<figure class='code'><figcaption><span>Set some environment variables</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="o">~</span><span class="sr">/.bash_profile</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Create a new post:
-Blog posts are located in source/_posts.
-They follow a naming convention as: &lsquo;YYYY-MM-DD-post-title.markdown&rsquo;</p>
-
-<figure class='code'><figcaption><span>Create a New Post</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">new_post</span><span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>EDIT THE POST FILE</h2>
-
-<p>Open the post file located in &lsquo;source/_posts&rsquo; with your favorite editor.  I am currently using gedit.
-The post file has header information in yaml.  You may edit that information.</p>
-
-<p>Categories are used to classify your post.  Search Engines key off of them.  You can place the categories in the side bar and you can filter your posts by category</p>
-
-<figure class='code'><figcaption><span>Category Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#one category</span>
-</span><span class='line'><span class="ss">categories</span><span class="p">:</span> <span class="no">Sass</span>
-</span><span class='line'><span class="c1">#multiple categories</span>
-</span><span class='line'><span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="no">CSS3</span><span class="p">,</span> <span class="no">Sass</span><span class="p">,</span> <span class="no">Media</span> <span class="no">Queries</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Place Text</h2>
-
-<p>I have put some junk text that I thought was a comment at the bottom of this post.  As I learn more, I will put at the top.</p>
-
-<h2>Place a Comment</h2>
-
-<h2>what is &lt;! &ndash;more&ndash;!></h2>
-
-<p>Description needed.</p>
-
-<h2>Place an Image</h2>
-
-<p>This is an example of how to place an image:  (the image of the cat in the code block is not intended. I will find out how to prevent that later.</p>
-
-<figure class='code'><figcaption><span>How to place an image in Octopress</span><a href='http://octopress.org/docs/plugins/image-tag/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="o">[</span><span class="k">class</span> <span class="n">names</span><span class="o">]</span> <span class="sr">/path/</span><span class="n">to</span><span class="o">/</span><span class="n">image</span> <span class="o">[</span><span class="n">width</span><span class="o">]</span> <span class="o">[</span><span class="n">height</span><span class="o">]</span> <span class="o">[</span><span class="n">title</span> <span class="n">text</span> <span class="o">[</span><span class="n">alt</span> <span class="n">text</span><span class="o">]]</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx"><img src="http://placekitten.com/890/280"></span>
-</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">left</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">320</span><span class="o">/</span><span class="mi">250</span> <span class="no">Place</span> <span class="no">Kitten</span> <span class="c1">#2 %}</span>
-</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">right</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">300</span><span class="o">/</span><span class="mi">500</span> <span class="mi">150</span> <span class="mi">250</span> <span class="no">Place</span> <span class="no">Kitten</span> <span class="c1">#3 %}</span>
-</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">right</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">300</span><span class="o">/</span><span class="mi">500</span> <span class="mi">150</span> <span class="mi">250</span> <span class="s1">&#39;Place Kitten #4&#39;</span> <span class="s1">&#39;An image of a very cute kitten&#39;</span> <span class="o">%</span><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Resulting in:</p>
-
-<p><img src="http://placekitten.com/890/280">
-<img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" >
-<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
-<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
-I am having trouble placing all these cats around.  I will learn how to heard these things as soon as I catch my breath.</p>
-
-<h2>Place a Video</h2>
-
-<p>If you want to place a video, its like so;</p>
-
-<figure class='code'><figcaption><span>Syntax for placing a video</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">video</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//s</span><span class="mi">3</span><span class="o">.</span><span class="n">imathis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">video</span><span class="o">/</span><span class="n">zero</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">fancy</span><span class="o">-</span><span class="n">buttons</span><span class="o">.</span><span class="n">mp4</span> <span class="mi">640</span> <span class="mi">320</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//s</span><span class="mi">3</span><span class="o">.</span><span class="n">imathis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">video</span><span class="o">/</span><span class="n">zero</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">fancy</span><span class="o">-</span><span class="n">buttons</span><span class="o">.</span><span class="n">png</span> <span class="o">%</span><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And here is how it looks.
-<video width='640' height='320' preload='metadata' controls poster='http://s3.imathis.com/video/zero-to-fancy-buttons.png'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></p>
-
-<h2>Place Code Blocks (text boxes)</h2>
-
-<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.</p>
-
-<figure class='code'><figcaption><span>Discover if a number is prime</span><a href='http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
-</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The box is coded as such:</p>
-
-<figure class='code'><figcaption><span>Easy Code Block Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#``` [language] [title] [url] [link text]</span>
-</span><span class='line'><span class="c1">#class Fixnum</span>
-</span><span class='line'><span class="c1">#  def prime?</span>
-</span><span class='line'><span class="c1">#    (&#39;1&#39; * self) !~ /^1?$|^(11+?)\1+$/</span>
-</span><span class='line'><span class="c1">#  end</span>
-</span><span class='line'><span class="c1">#end</span>
-</span><span class='line'><span class="c1">#```</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can include your own local snippets this way:
-File /home/mcarey/octopress/source/downloads/code/path/to/file could not be found .
-Hmmm, too much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</p>
-
-<p>Another slick way to embed code snippets is with Gist.  In this case we get a vdif file gistfile1.diff from the host GitHub.</p>
-
-<div><script src='https://gist.github.com/4321346.js?file=gistfile1.diff'></script>
-<noscript><pre><code>@@ -590,7 +590,7 @@ class SpritesTest &lt; Test::Unit::TestCase
-  it &quot;should generate a sprite from nested folders&quot; do
-    css = render &lt;&lt;-SCSS
--     @import &quot;nested/*.png&quot;;
-+     @import &quot;nested/**/*.png&quot;;
-      @include all-nested-sprites;
-    SCSS
-    assert_correct css, &lt;&lt;-CSS</code></pre></noscript></div>
-
-
-<h2>LAUNCH THE BLOG LOCALLY</h2>
-
-<p>Open a bash shell and type:</p>
-
-<figure class='code'><figcaption><span>Set some environment variables</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="o">~</span><span class="sr">/.bash_profile</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Generate and preview your local changes at &lsquo;<a href="http://localhost:4000/">http://localhost:4000/</a>&rsquo; type:</p>
-
-<figure class='code'><figcaption><span>generate and preview your local changes</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
-</span><span class='line'><span class="n">rake</span> <span class="n">preview</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>LAUNCH THE BLOG FOR THE WORLD TO SEE</h2>
-
-<p>Commit my local changes back to my github &lsquo;source branch&rsquo; and move them to the &lsquo;master branch&rsquo;.  Moving them to the master branch causes my blog site to automaticaly update at: &lsquo;<a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a>&rsquo;.</p>
-
-<p>Publish the changes to github master&hellip;</p>
-
-<figure class='code'><figcaption><span>Commit changes to github</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
-</span><span class='line'><span class="n">rake</span> <span class="n">deploy</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
+      
+    </footer>
+  
+</article>
 
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <h2>Michael J Carey<h2/>
@@ -475,6 +142,7 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
 
   
 </aside>
+
 
     </div>
   </div>

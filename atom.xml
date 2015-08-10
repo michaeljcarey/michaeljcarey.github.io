@@ -4,7 +4,7 @@
   <title><![CDATA[Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-08T18:24:08-07:00</updated>
+  <updated>2015-08-09T16:58:44-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -58,7 +58,7 @@ I found that and more on at Octopress' docs &ldquo;Configuring Octopress&rdquo; 
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Add Items to the Menu Bar</h2>
+<h2>Add pages to the paginator (menu bar)</h2>
 
 <p>Lets put an &lsquo;About&rsquo; Item on the menu bar.</p>
 
@@ -92,11 +92,11 @@ I found that and more on at Octopress' docs &ldquo;Configuring Octopress&rdquo; 
 </span><span class='line'><span class="ss">sharing</span><span class="p">:</span> <span class="kp">true</span>
 </span><span class='line'><span class="ss">footer</span><span class="p">:</span> <span class="kp">true</span>
 </span><span class='line'><span class="o">---</span>
-</span><span class='line'><span class="n">I</span> <span class="n">like</span> <span class="n">chocolate</span><span class="o">.</span>
+</span><span class='line'><span class="no">Ice</span> <span class="n">cream</span> <span class="n">is</span> <span class="n">good</span> <span class="k">for</span> <span class="n">you</span> <span class="n">because</span> <span class="n">it</span> <span class="n">makes</span> <span class="n">you</span> <span class="n">happy</span><span class="o">.</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Now add the page to the Menu Bar.  Edit the navigation.html in /source/_includes/custom</p>
+<p>Now add the page to the pagenator (menubar).  Edit the navigation.html in /source/_includes/custom</p>
 
 <figure class='code'><figcaption><span>Add Page to the Menu Bar</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -120,9 +120,9 @@ I found that and more on at Octopress' docs &ldquo;Configuring Octopress&rdquo; 
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Add a Group to the Side Column</h2>
+<h2>Add a Pages to the Sidebar</h2>
 
-<p>Lets say we wanted to add a group onto the side column.  In this example our group is called &lsquo;categories&rsquo; which contain a set of category(s).
+<p>Lets say we wanted to add a page onto the sidebar.  In this example our page is called &lsquo;categories&rsquo; which contain a set of category(s).
 Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 
 <figure class='code'><figcaption><span>Create and edit 'source/_includes/custom/asides/categories.html'</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -147,7 +147,7 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 
 <p>Edit your _config.yml file and find the line with default_asides and add /custom/asides/categories.html</p>
 
-<figure class='code'><figcaption><span>Add Group into Side Column (asides)</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>_config.yml</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">custom</span><span class="o">/</span><span class="n">asides</span><span class="o">/</span><span class="n">categories</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.]</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -161,6 +161,10 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 <p>tbd</p>
 
 <h2>look into Extended Validation Certificate</h2>
+
+<h2>How to get social</h2>
+
+<p>With facebook, linkedin, etc.</p>
 ]]></content>
   </entry>
   

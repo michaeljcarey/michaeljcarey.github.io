@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blogging Basics II, How to Configure and Edit Your Blog Site in Octopress - Michael J Carey</title>
+  <title>Michael J Carey</title>
   <meta name="author" content="Michael J Carey">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://michaeljcarey.github.io/blog/2015/08/06/startingmyblog2howtowriteapost/">
+  <link rel="canonical" href="http://michaeljcarey.github.io/blog/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Michael J Carey" type="application/atom+xml">
@@ -67,12 +67,15 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Blogging Basics II, How to Configure and Edit Your Blog Site in Octopress</h1>
+      <h1 class="entry-title"><a href="/blog/2015/08/06/startingmyblog2howtowriteapost/">Blogging Basics II, How to Configure and Edit Your Blog Site in Octopress</a></h1>
     
     
       <p class="meta">
@@ -88,7 +91,7 @@
   </header>
 
 
-<div class="entry-content"><p>Welcome to Part 2 of &lsquo;Blogging Basics - How to Configure and Edit Your Blog Site in Octopress&rsquo;.  Now that we have successfully set up a Basic Octopress Blog site and written our first posts, we are ready to tune up the Blog site and add more functionality.</p>
+  <div class="entry-content"><p>Welcome to Part 2 of &lsquo;Blogging Basics - How to Configure and Edit Your Blog Site in Octopress&rsquo;.  Now that we have successfully set up a Basic Octopress Blog site and written our first posts, we are ready to tune up the Blog site and add more functionality.</p>
 
 <h2>Configuring Octopress</h2>
 
@@ -236,48 +239,219 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 
 <p>With facebook, linkedin, etc.</p>
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
+  
   
 
-<span class="byline author vcard">Posted by <span class="fn">Michael J Carey</span></span>
 
+    </article>
+  
+  
+    <article>
       
-
-
-
-
-<time class='entry-date' datetime='2015-08-06T18:08:29-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>6:08 pm</span></time>
-      
-
-
-    </p>
+  <header>
     
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://michaeljcarey.github.io/blog/2015/08/06/startingmyblog2howtowriteapost/" data-via="" data-counturl="http://michaeljcarey.github.io/blog/2015/08/06/startingmyblog2howtowriteapost/" >Tweet</a>
-  
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
+      <h1 class="entry-title"><a href="/blog/2015/08/05/myfirstpost/">Blogging Basics I, How to Create a Post on Your Octopress Blog</a></h1>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2015/08/05/myfirstpost/" title="Previous Post: Blogging Basics I, How to Create a Post on Your Octopress Blog">&laquo; Blogging Basics I, How to Create a Post on Your Octopress Blog</a>
-      
-      
-    </p>
-  </footer>
-</article>
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-08-05T13:02:04-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:02 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Welcome to my first post (or is it a page).  This post is an experimental platform for me to learn how to blog. In addition, I am able to share my experiences with others who may find themselves walking down similar paths.
+First off, my blogging platform is powered by Octopress and it is being hosted by the github repository.</p>
+
+<p>This article &ldquo;How to Create a Post on Your Octopress Blog&rdquo; shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. The follow up article &ldquo;How to Configure and Edit Your Blog Site&rdquo; shows how to change your blog&rsquo;s appearance and add functionality.</p>
+
+<h2>Create a Post</h2>
+
+<p>Open a bash shell and type:</p>
+
+<figure class='code'><figcaption><span>Set some environment variables</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="o">~</span><span class="sr">/.bash_profile</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create a new post:
+Blog posts are located in source/_posts.
+They follow a naming convention as: &lsquo;YYYY-MM-DD-post-title.markdown&rsquo;</p>
+
+<figure class='code'><figcaption><span>Create a New Post</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">new_post</span><span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>EDIT THE POST FILE</h2>
+
+<p>Open the post file located in &lsquo;source/_posts&rsquo; with your favorite editor.  I am currently using gedit.
+The post file has header information in yaml.  You may edit that information.</p>
+
+<p>Categories are used to classify your post.  Search Engines key off of them.  You can place the categories in the side bar and you can filter your posts by category</p>
+
+<figure class='code'><figcaption><span>Category Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#one category</span>
+</span><span class='line'><span class="ss">categories</span><span class="p">:</span> <span class="no">Sass</span>
+</span><span class='line'><span class="c1">#multiple categories</span>
+</span><span class='line'><span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="no">CSS3</span><span class="p">,</span> <span class="no">Sass</span><span class="p">,</span> <span class="no">Media</span> <span class="no">Queries</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Place Text</h2>
+
+<p>I have put some junk text that I thought was a comment at the bottom of this post.  As I learn more, I will put at the top.</p>
+
+<h2>Place a Comment</h2>
+
+<h2>what is &lt;! &ndash;more&ndash;!></h2>
+
+<p>Description needed.</p>
+
+<h2>Place an Image</h2>
+
+<p>This is an example of how to place an image:  (the image of the cat in the code block is not intended. I will find out how to prevent that later.</p>
+
+<figure class='code'><figcaption><span>How to place an image in Octopress</span><a href='http://octopress.org/docs/plugins/image-tag/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="o">[</span><span class="k">class</span> <span class="n">names</span><span class="o">]</span> <span class="sr">/path/</span><span class="n">to</span><span class="o">/</span><span class="n">image</span> <span class="o">[</span><span class="n">width</span><span class="o">]</span> <span class="o">[</span><span class="n">height</span><span class="o">]</span> <span class="o">[</span><span class="n">title</span> <span class="n">text</span> <span class="o">[</span><span class="n">alt</span> <span class="n">text</span><span class="o">]]</span> <span class="sx">%}</span>
+</span><span class='line'><span class="sx"><img src="http://placekitten.com/890/280"></span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">left</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">320</span><span class="o">/</span><span class="mi">250</span> <span class="no">Place</span> <span class="no">Kitten</span> <span class="c1">#2 %}</span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">right</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">300</span><span class="o">/</span><span class="mi">500</span> <span class="mi">150</span> <span class="mi">250</span> <span class="no">Place</span> <span class="no">Kitten</span> <span class="c1">#3 %}</span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">img</span> <span class="n">right</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">placekitten</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">300</span><span class="o">/</span><span class="mi">500</span> <span class="mi">150</span> <span class="mi">250</span> <span class="s1">&#39;Place Kitten #4&#39;</span> <span class="s1">&#39;An image of a very cute kitten&#39;</span> <span class="o">%</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Resulting in:</p>
+
+<p><img src="http://placekitten.com/890/280">
+<img class="left" src="http://placekitten.com/320/250" title="Place Kitten #2" >
+<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
+<img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
+I am having trouble placing all these cats around.  I will learn how to heard these things as soon as I catch my breath.</p>
+
+<h2>Place a Video</h2>
+
+<p>If you want to place a video, its like so;</p>
+
+<figure class='code'><figcaption><span>Syntax for placing a video</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">video</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//s</span><span class="mi">3</span><span class="o">.</span><span class="n">imathis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">video</span><span class="o">/</span><span class="n">zero</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">fancy</span><span class="o">-</span><span class="n">buttons</span><span class="o">.</span><span class="n">mp4</span> <span class="mi">640</span> <span class="mi">320</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//s</span><span class="mi">3</span><span class="o">.</span><span class="n">imathis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">video</span><span class="o">/</span><span class="n">zero</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">fancy</span><span class="o">-</span><span class="n">buttons</span><span class="o">.</span><span class="n">png</span> <span class="o">%</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And here is how it looks.
+<video width='640' height='320' preload='metadata' controls poster='http://s3.imathis.com/video/zero-to-fancy-buttons.png'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></p>
+
+<h2>Place Code Blocks (text boxes)</h2>
+
+<p>The text box below is essential to displaying code snippets.  This box is pretty powerful due to it syntax highlighting.  Thanks to Avinish Meetoo for the codesnip.</p>
+
+<figure class='code'><figcaption><span>Discover if a number is prime</span><a href='http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
+</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The box is coded as such:</p>
+
+<figure class='code'><figcaption><span>Easy Code Block Syntax</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#``` [language] [title] [url] [link text]</span>
+</span><span class='line'><span class="c1">#class Fixnum</span>
+</span><span class='line'><span class="c1">#  def prime?</span>
+</span><span class='line'><span class="c1">#    (&#39;1&#39; * self) !~ /^1?$|^(11+?)\1+$/</span>
+</span><span class='line'><span class="c1">#  end</span>
+</span><span class='line'><span class="c1">#end</span>
+</span><span class='line'><span class="c1">#```</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can include your own local snippets this way:
+File /home/mcarey/octopress/source/downloads/code/path/to/file could not be found .
+Hmmm, too much trouble at the moment.  I am imagining that I would have to put my source under github.  For now, what could be simpler than inlining the snippet as in the bottom example.</p>
+
+<p>Another slick way to embed code snippets is with Gist.  In this case we get a vdif file gistfile1.diff from the host GitHub.</p>
+
+<div><script src='https://gist.github.com/4321346.js?file=gistfile1.diff'></script>
+<noscript><pre><code>@@ -590,7 +590,7 @@ class SpritesTest &lt; Test::Unit::TestCase
+  it &quot;should generate a sprite from nested folders&quot; do
+    css = render &lt;&lt;-SCSS
+-     @import &quot;nested/*.png&quot;;
++     @import &quot;nested/**/*.png&quot;;
+      @include all-nested-sprites;
+    SCSS
+    assert_correct css, &lt;&lt;-CSS</code></pre></noscript></div>
+
+
+<h2>LAUNCH THE BLOG LOCALLY</h2>
+
+<p>Open a bash shell and type:</p>
+
+<figure class='code'><figcaption><span>Set some environment variables</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="o">~</span><span class="sr">/.bash_profile</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Generate and preview your local changes at &lsquo;<a href="http://localhost:4000/">http://localhost:4000/</a>&rsquo; type:</p>
+
+<figure class='code'><figcaption><span>generate and preview your local changes</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
+</span><span class='line'><span class="n">rake</span> <span class="n">preview</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>LAUNCH THE BLOG FOR THE WORLD TO SEE</h2>
+
+<p>Commit my local changes back to my github &lsquo;source branch&rsquo; and move them to the &lsquo;master branch&rsquo;.  Moving them to the master branch causes my blog site to automaticaly update at: &lsquo;<a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a>&rsquo;.</p>
+
+<p>Publish the changes to github master&hellip;</p>
+
+<figure class='code'><figcaption><span>Commit changes to github</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
+</span><span class='line'><span class="n">rake</span> <span class="n">deploy</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 </div>
+  
+  
 
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
 <aside class="sidebar">
   
     <h2>Michael J Carey<h2/>
@@ -308,7 +482,6 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 
   
 </aside>
-
 
     </div>
   </div>

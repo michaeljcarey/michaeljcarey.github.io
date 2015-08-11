@@ -218,23 +218,23 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>and the categories file might look like this</p>
 
-
-<figure class='code'><figcaption><span>Add header and entries as shown</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>categories.html</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="no">Categories</span><span class="o">&lt;</span><span class="sr">/h3&gt;</span>
-</span><span class='line'><span class="sr">&lt;p&gt;Software&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="no">Blogging</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'><span class="sr">&lt;p&gt;Embedded&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h3&gt;</span>Categories<span class="nt">&lt;/h3&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>Software<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>Blogging<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>Embedded<span class="nt">&lt;/p&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>Edit your _config.yml file and find the line with default_asides and add /custom/asides/categories.html</p>
 
 <figure class='code'><figcaption><span>_config.yml</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">custom</span><span class="o">/</span><span class="n">asides</span><span class="o">/</span><span class="n">categories</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.]</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/categories.html</span><span class="p-Indicator">,</span> <span class="nv">asides/github.html</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -263,7 +263,7 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/08/05/myfirstpost/">Myfirstpost</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/08/05/myfirstpost/">Blogging Basics I, How To Create A Post On Your Octopress Blog</a></h1>
     
     
       <p class="meta">
@@ -272,22 +272,14 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 
 
 
-<time class='entry-date' datetime='2015-08-05T00:00:00-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+<time class='entry-date' datetime='2015-08-05T13:02:04-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:02 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>layout: post
-title: &ldquo;Blogging Basics I, How to Create a Post on Your Octopress Blog&rdquo;
-date: 2015-08-05 13:02:04 -0700
-comments: true
-author: Michael J Carey</p>
-
-<h2>categories: [blog, howto]</h2>
-
-<p>Welcome to my first post (or is it a page).  This post is an experimental platform for me to learn how to blog. In addition, I am able to share my experiences with others who may find themselves walking down similar paths.
+  <div class="entry-content"><p>Welcome to my first post (or is it a page).  This post is an experimental platform for me to learn how to blog. In addition, I am able to share my experiences with others who may find themselves walking down similar paths.
 First off, my blogging platform is powered by Octopress and it is being hosted by the github repository.</p>
 
 <p>This article &ldquo;How to Create a Post on Your Octopress Blog&rdquo; shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. The follow up article &ldquo;How to Configure and Edit Your Blog Site&rdquo; shows how to change your blog&rsquo;s appearance and add functionality.</p>
@@ -486,7 +478,7 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
       </li>
     
       <li class="post">
-        <a href="/blog/2015/08/05/myfirstpost/">Myfirstpost</a>
+        <a href="/blog/2015/08/05/myfirstpost/">Blogging Basics I, How To Create A Post On Your Octopress Blog</a>
       </li>
     
   </ul>

@@ -99,6 +99,9 @@
 
 <time class='entry-date' datetime='2015-08-06T18:08:29-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>6:08 pm</span></time>
         
+           | <a href="/blog/2015/08/06/startingmyblog2howtowriteapost/#disqus_thread"
+             data-disqus-identifier="http://michaeljcarey.github.io/blog/2015/08/06/startingmyblog2howtowriteapost/">Comments</a>
+        
       </p>
     
   </header>
@@ -252,11 +255,32 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 
 <p>With facebook, linkedin, etc.</p>
 
+<h3>next post, how to track and monitize your blog</h3>
+
 <h2>Add Google Analytics for Tracking and Monitization</h2>
 
 <p>XXXhe best way in my opinion would be to setup Google Analytics on your blog by placing the Analytics code at the bottom of your _layouts/default.html file.</p>
 
 <p>XXXFor others to see also, you can use a third-party API that uses JavaScript. The third-party service tracks pageviews for you and then provides you with a JavaScript snippet that you paste your sidebar or where ever you want the pageviews to show up. StatCounter is an example (didn&rsquo;t verify if it is a good service or not).</p>
+
+<p>I am trying page-view over jekyll-ga because i dont see in the jekyll writeup how to display the analytics.  page-view does show an example.</p>
+
+<p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;</p>
+
+<h2>Add Product Linking</h2>
+
+<h2>Add Link Analytics and Webmaster Tools</h2>
+
+<h2>Add Comments with Disqus</h2>
+
+<p>Create a Disqus account and configure it</p>
+
+<p>xxxThe standard way of making your posts commetable in Octopress is configuring disqus for it. This is a website that will manage your comments for you, so you will be able to migrate your blogging plataform in a much easier way. The only thing you have to do is to create an account and then configure it on Octopress. In order to do this you have to set these two variables in the _config.yml file:</p>
+
+<p>disqus_show_comment_count: true
+disqus_short_name: YOUR_DISQUS_ACCOUNT</p>
+
+<p>Finally make sure that your blog entries have the comments: true option on top.</p>
 </div>
   
   
@@ -279,6 +303,9 @@ Create and edit &lsquo;source/_includes/custom/asides/categories.html&rsquo;</p>
 
 
 <time class='entry-date' datetime='2015-08-05T13:02:04-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:02 pm</span></time>
+        
+           | <a href="/blog/2015/08/05/myfirstpost/#disqus_thread"
+             data-disqus-identifier="http://michaeljcarey.github.io/blog/2015/08/05/myfirstpost/">Comments</a>
         
       </p>
     
@@ -517,6 +544,19 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'disqus_michaeljcarey';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

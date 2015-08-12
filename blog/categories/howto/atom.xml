@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Howto | Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/howto/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-11T17:16:05-07:00</updated>
+  <updated>2015-08-12T10:37:57-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -182,11 +182,32 @@ So that it includes the about group.
 
 <p>With facebook, linkedin, etc.</p>
 
+<h3>next post, how to track and monitize your blog</h3>
+
 <h2>Add Google Analytics for Tracking and Monitization</h2>
 
 <p>XXXhe best way in my opinion would be to setup Google Analytics on your blog by placing the Analytics code at the bottom of your _layouts/default.html file.</p>
 
 <p>XXXFor others to see also, you can use a third-party API that uses JavaScript. The third-party service tracks pageviews for you and then provides you with a JavaScript snippet that you paste your sidebar or where ever you want the pageviews to show up. StatCounter is an example (didn&rsquo;t verify if it is a good service or not).</p>
+
+<p>I am trying page-view over jekyll-ga because i dont see in the jekyll writeup how to display the analytics.  page-view does show an example.</p>
+
+<p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;</p>
+
+<h2>Add Product Linking</h2>
+
+<h2>Add Link Analytics and Webmaster Tools</h2>
+
+<h2>Add Comments with Disqus</h2>
+
+<p>Create a Disqus account and configure it</p>
+
+<p>xxxThe standard way of making your posts commetable in Octopress is configuring disqus for it. This is a website that will manage your comments for you, so you will be able to migrate your blogging plataform in a much easier way. The only thing you have to do is to create an account and then configure it on Octopress. In order to do this you have to set these two variables in the _config.yml file:</p>
+
+<p>disqus_show_comment_count: true
+disqus_short_name: YOUR_DISQUS_ACCOUNT</p>
+
+<p>Finally make sure that your blog entries have the comments: true option on top.</p>
 ]]></content>
   </entry>
   

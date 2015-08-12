@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blog | Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-12T10:51:50-07:00</updated>
+  <updated>2015-08-12T16:24:25-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging Basics I I I, Make Your Octopress Blog Active With Comments, Analytics And Product Links]]></title>
+    <link href="http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/"/>
+    <updated>2015-08-12T11:25:22-07:00</updated>
+    <id>http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3</id>
+    <content type="html"><![CDATA[<p>Welcome to Part 3 of &lsquo;Blogging Basics - Make Your Octopress Blog Site Active with Comments, Analytics and Monetization&rsquo;.  How do you know what others are thinking about your blog, how many people visit your site and what are they doing when they are there?  If you can gain this kind of insight, you can tune your blog for more interest and you can even add advertising links to monetize your site.  This post can get you started on your way to more hits and popularity</p>
+
+<h2>Add Comments with Disqus</h2>
+
+<p>Despite Octopress being a static site, comments can be added to your posts via Disqus.  Disqus is already set up for you. All you need to do is create a Disqus account and register for a new forum.  <a href="https://help.disqus.com/customer/portal/articles/931017-registering-a-new-forum">https://help.disqus.com/customer/portal/articles/931017-registering-a-new-forum</a></p>
+
+<p>The only thing left to do is to set the properties in _config.yml.</p>
+
+<pre><code class="yaml _config.yml https://michaeljcarey.github.io Source Article">disqus_show_comment_count: true
+disqus_short_name: YOUR_DISQUS_ACCOUNT
+</code></pre>
+
+<p>And then make sure that your blog entries have the comments: true option on top.</p>
+
+<h2>Add Google Analytics for Tracking and Monitization</h2>
+
+<p>Google Analytics can track how many people go to your site as well as other things like how long they spend on your site and where they are from.  To utilize this feature, go to the Google Analyitics web site and create an account and get your account id.
+If you navigate to Admin/Tracking Info/Tracking Code then you will see your tracking code snip.
+Google Analytics instructs you to place their code snippet in all of your html files, but in my case I will add the code at the bottom of the _layouts/default.html file.  This file is included in all the pages and posts.</p>
+
+<p>When you follow these instructions, then you are able to log onto Google Analytics and view all the information about page hits.  Spend some time looking through and learning all that google offers.</p>
+
+<p>If you want to display page hits on your blog, then you will need to add XXX to your Octopress pages which will instruct Octopress to go to google analytics and retrieve the hit counts for dislplay.</p>
+
+<p>I dont yet have this display of code hits working quite yet.  But I do see a couple of different ways to do this. I have not used StatCounter, but maybe it works well.</p>
+
+<p>XXXFor others to see also, you can use a third-party API that uses JavaScript. The third-party service tracks pageviews for you and then provides you with a JavaScript snippet that you paste your sidebar or where ever you want the pageviews to show up. StatCounter is an example (didn&rsquo;t verify if it is a good service or not).</p>
+
+<p>There are two other plugins that Octopress provides; jekyll-ga and octopress-page-view.</p>
+
+<p>I am trying page-view over jekyll-ga because i dont see in the jekyll writeup how to display the analytics while page-view does show an example.</p>
+
+<p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;
+I am currently trying to get the verification for the missing tracking code.  This verification is pending&hellip;  more to follow.</p>
+
+<h2>Add Link Analytics and Webmaster Tools</h2>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Blogging Basics I I, How To Configure And Edit Your Blog Site In Octopress]]></title>
@@ -123,16 +167,16 @@ So that it includes the about group.
 </span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span>
 </span><span class='line'>
 </span><span class='line'>##Add a Pages to the Sidebar
-</span><span class='line'>Lets say we wanted to add a page onto the sidebar.  In this example our page is called &#39;categories&#39; which contain a set of category(s).
-</span><span class='line'>Create and edit &#39;source/_includes/custom/asides/categories.html&#39;
+</span><span class='line'>Lets say we wanted to add a page onto the sidebar.  In this example our page is called &#39;FruitFav&#39; which contain a set of favorite fruits.
+</span><span class='line'>Create and edit &#39;source/_includes/custom/asides/FruitFav.html&#39;
 </span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="nt">&lt;p&gt;</span>cd source/_includes/custom/asides
-</span><span class='line'>vi categories.html
+</span><span class='line'>vi FruitFav.html
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>and the categories file might look like this
-<figure class='code'><figcaption><span>categories.html <a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a> Source Article</p></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>and the file might look like this:
+<figure class='code'><figcaption><span>FruitFav.html <a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a> Source Article</p></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -149,65 +193,45 @@ So that it includes the about group.
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h3&gt;</span>Categories<span class="nt">&lt;/h3&gt;</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h3&gt;</span>My Favorite Fruit<span class="nt">&lt;/h3&gt;</span>
 </span><span class='line'>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>Software<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>Lychee<span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>Blogging<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>Durian<span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>Embedded<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>Bacon<span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'>
 </span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span>
-</span><span class='line'>Edit your _config.yml file and find the line with default_asides and add /custom/asides/categories.html
+</span><span class='line'>Edit your _config.yml file and find the line with default_asides and add /custom/asides/FruitFav.html
 </span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>default_asides: [asides/recent_posts.html, custom/asides/categories.html, asides/github.html, <span class="ni">&amp;hellip;</span>]
+</span><span class='line'><span class="nt">&lt;p&gt;</span>default_asides: [asides/recent_posts.html, custom/asides/FruitFav.html, asides/github.html, <span class="ni">&amp;hellip;</span>]
 </span></code></pre></td></tr></table></div></figure></p>
+
+<p>The above example is somewhat static.  What if I want to put my Category List in the sidebar? The categories should be discovered dynamically and they should provide links to all the posts in that category.  For dynamic category action, I followed a path described by
+<a href="http://kaworu.github.io/octostrap3/blog/2013/10/03/category-list-aside/">http://kaworu.github.io/octostrap3/blog/2013/10/03/category-list-aside/</a>
+but it didnt look good because I needed to install Octostrap3 theme.  When I did that it looked better but it changed too many things for my taste.  I then decided to change back to the classic theme.</p>
 
 <h2>Change a Theme</h2>
 
-<p>tbd</p>
+<pre><code class="yaml To Change Back to the default Classic Theme https://michaeljcarey.github.io Source Article">rake install[classic]
+rake generate
+</code></pre>
 
-<h2>Use a Plugin</h2>
+<h2>Install a Plugin</h2>
 
-<p>tbd</p>
-
-<h2>look into Extended Validation Certificate</h2>
+<p>I decided to use the ctdk/octopress-category-list plugin.<br/>
+<a href="https://github.com/ctdk/octopress-category-list">https://github.com/ctdk/octopress-category-list</a>
+<a href="https://github.com/ctdk/octopress-category-list">https://github.com/ctdk/octopress-category-list</a>
+Download the plugin and follow the instructions in the readme file.  Add the plugin into the ./plugins directory and (in this case) copy the template (html) files into ./source/<em>includes/custom/asides directory and then add the template file names into the default_asides list of </em>config.yml file.</p>
 
 <h2>How to get social</h2>
 
 <p>With facebook, linkedin, etc.</p>
-
-<h3>next post, how to track and monitize your blog</h3>
-
-<h2>Add Google Analytics for Tracking and Monitization</h2>
-
-<p>XXXhe best way in my opinion would be to setup Google Analytics on your blog by placing the Analytics code at the bottom of your _layouts/default.html file.</p>
-
-<p>XXXFor others to see also, you can use a third-party API that uses JavaScript. The third-party service tracks pageviews for you and then provides you with a JavaScript snippet that you paste your sidebar or where ever you want the pageviews to show up. StatCounter is an example (didn&rsquo;t verify if it is a good service or not).</p>
-
-<p>I am trying page-view over jekyll-ga because i dont see in the jekyll writeup how to display the analytics.  page-view does show an example.</p>
-
-<p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;</p>
-
-<h2>Add Product Linking</h2>
-
-<h2>Add Link Analytics and Webmaster Tools</h2>
-
-<h2>Add Comments with Disqus</h2>
-
-<p>Create a Disqus account and configure it</p>
-
-<p>xxxThe standard way of making your posts commetable in Octopress is configuring disqus for it. This is a website that will manage your comments for you, so you will be able to migrate your blogging plataform in a much easier way. The only thing you have to do is to create an account and then configure it on Octopress. In order to do this you have to set these two variables in the _config.yml file:</p>
-
-<p>disqus_show_comment_count: true
-disqus_short_name: YOUR_DISQUS_ACCOUNT</p>
-
-<p>Finally make sure that your blog entries have the comments: true option on top.</p>
 ]]></content>
   </entry>
   

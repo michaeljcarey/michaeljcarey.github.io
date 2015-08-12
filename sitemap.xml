@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/</loc>
+    <lastmod>2015-08-12T11:25:22-07:00</lastmod>
+  </url>
+  <url>
     <loc>http://michaeljcarey.github.io/blog/2015/08/06/startingmyblog2howtowriteapost/</loc>
     <lastmod>2015-08-06T18:08:29-07:00</lastmod>
   </url>
@@ -18,9 +22,6 @@
     <loc>http://michaeljcarey.github.io/</loc>
   </url>
   <url>
-    <loc>http://michaeljcarey.github.io/blog/categories/</loc>
-  </url>
-  <url>
     <loc>http://michaeljcarey.github.io/blog/about/</loc>
   </url>
   <url>
@@ -31,5 +32,8 @@
   </url>
   <url>
     <loc>http://michaeljcarey.github.io/blog/categories/howto/</loc>
+  </url>
+  <url>
+    <loc>http://michaeljcarey.github.io/blog/categories/software/</loc>
   </url>
 </urlset>

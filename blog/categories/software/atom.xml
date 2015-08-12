@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Software | Michael J Carey]]></title>
+  <link href="http://michaeljcarey.github.io/blog/categories/software/atom.xml" rel="self"/>
+  <link href="http://michaeljcarey.github.io/"/>
+  <updated>2015-08-12T16:24:25-07:00</updated>
+  <id>http://michaeljcarey.github.io/</id>
+  <author>
+    <name><![CDATA[Michael J Carey]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging Basics I I I, Make Your Octopress Blog Active With Comments, Analytics And Product Links]]></title>
+    <link href="http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/"/>
+    <updated>2015-08-12T11:25:22-07:00</updated>
+    <id>http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3</id>
+    <content type="html"><![CDATA[<p>Welcome to Part 3 of &lsquo;Blogging Basics - Make Your Octopress Blog Site Active with Comments, Analytics and Monetization&rsquo;.  How do you know what others are thinking about your blog, how many people visit your site and what are they doing when they are there?  If you can gain this kind of insight, you can tune your blog for more interest and you can even add advertising links to monetize your site.  This post can get you started on your way to more hits and popularity</p>
+
+<h2>Add Comments with Disqus</h2>
+
+<p>Despite Octopress being a static site, comments can be added to your posts via Disqus.  Disqus is already set up for you. All you need to do is create a Disqus account and register for a new forum.  <a href="https://help.disqus.com/customer/portal/articles/931017-registering-a-new-forum">https://help.disqus.com/customer/portal/articles/931017-registering-a-new-forum</a></p>
+
+<p>The only thing left to do is to set the properties in _config.yml.</p>
+
+<pre><code class="yaml _config.yml https://michaeljcarey.github.io Source Article">disqus_show_comment_count: true
+disqus_short_name: YOUR_DISQUS_ACCOUNT
+</code></pre>
+
+<p>And then make sure that your blog entries have the comments: true option on top.</p>
+
+<h2>Add Google Analytics for Tracking and Monitization</h2>
+
+<p>Google Analytics can track how many people go to your site as well as other things like how long they spend on your site and where they are from.  To utilize this feature, go to the Google Analyitics web site and create an account and get your account id.
+If you navigate to Admin/Tracking Info/Tracking Code then you will see your tracking code snip.
+Google Analytics instructs you to place their code snippet in all of your html files, but in my case I will add the code at the bottom of the _layouts/default.html file.  This file is included in all the pages and posts.</p>
+
+<p>When you follow these instructions, then you are able to log onto Google Analytics and view all the information about page hits.  Spend some time looking through and learning all that google offers.</p>
+
+<p>If you want to display page hits on your blog, then you will need to add XXX to your Octopress pages which will instruct Octopress to go to google analytics and retrieve the hit counts for dislplay.</p>
+
+<p>I dont yet have this display of code hits working quite yet.  But I do see a couple of different ways to do this. I have not used StatCounter, but maybe it works well.</p>
+
+<p>XXXFor others to see also, you can use a third-party API that uses JavaScript. The third-party service tracks pageviews for you and then provides you with a JavaScript snippet that you paste your sidebar or where ever you want the pageviews to show up. StatCounter is an example (didn&rsquo;t verify if it is a good service or not).</p>
+
+<p>There are two other plugins that Octopress provides; jekyll-ga and octopress-page-view.</p>
+
+<p>I am trying page-view over jekyll-ga because i dont see in the jekyll writeup how to display the analytics while page-view does show an example.</p>
+
+<p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;
+I am currently trying to get the verification for the missing tracking code.  This verification is pending&hellip;  more to follow.</p>
+
+<h2>Add Link Analytics and Webmaster Tools</h2>
+]]></content>
+  </entry>
+  
+</feed>

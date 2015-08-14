@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/</loc>
+    <lastmod>2015-08-13T13:36:02-07:00</lastmod>
+  </url>
+  <url>
     <loc>http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/</loc>
     <lastmod>2015-08-12T11:25:22-07:00</lastmod>
   </url>
@@ -35,5 +39,11 @@
   </url>
   <url>
     <loc>http://michaeljcarey.github.io/blog/categories/software/</loc>
+  </url>
+  <url>
+    <loc>http://michaeljcarey.github.io/blog/categories/arduino/</loc>
+  </url>
+  <url>
+    <loc>http://michaeljcarey.github.io/blog/categories/embedded/</loc>
   </url>
 </urlset>

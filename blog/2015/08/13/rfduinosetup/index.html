@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blogging Basics I I I, Make Your Octopress Blog Active With Comments, Analytics And Product Links - Michael J Carey</title>
+  <title>Setup Your First R Fduino - Michael J Carey</title>
   <meta name="author" content="Michael J Carey">
 
   
-  <meta name="description" content="Welcome to Part 3 of &lsquo;Blogging Basics - Make Your Octopress Blog Site Active with Comments, Analytics and Monetization&rsquo;. How do you know &hellip;">
+  <meta name="description" content="RFDuino is a tiny Arduino that features wireless bluetooth. The tiny shields stack and you can make any number of cool projects with this controller &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/">
+  <link rel="canonical" href="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Michael J Carey" type="application/atom+xml">
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Blogging Basics I I I, Make Your Octopress Blog Active With Comments, Analytics And Product Links</h1>
+      <h1 class="entry-title">Setup Your First R Fduino</h1>
     
     
       <p class="meta">
@@ -89,7 +89,7 @@
 
 
 
-<time class='entry-date' datetime='2015-08-12T11:25:22-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:25 am</span></time>
+<time class='entry-date' datetime='2015-08-13T13:36:02-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:36 pm</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://michaeljcarey.github.io">Comments</a>
@@ -99,45 +99,19 @@
   </header>
 
 
-<div class="entry-content"><p>Welcome to Part 3 of &lsquo;Blogging Basics - Make Your Octopress Blog Site Active with Comments, Analytics and Monetization&rsquo;.  How do you know what others are thinking about your blog, how many people visit your site and what are they doing when they are there?  If you can gain this kind of insight, you can tune your blog for more interest and you can even add advertising links to monetize your site.  This post can get you started on your way to more hits and popularity</p>
+<div class="entry-content"><p>RFDuino is a tiny Arduino that features wireless bluetooth.  The tiny shields stack and you can make any number of cool projects with this controller.  I ended up buying 3 boards from them so that I can develop a servo controller.  This post describes initial setup of my project.  Another post will describe how I made a remotely controlled robot.</p>
 
-<h2>Add Comments with Disqus</h2>
+<p>I got the standard RFduino RFD22102 with wireless bluetooth.</p>
 
-<p>Despite Octopress being a static site, comments can be added to your posts via Disqus.  Disqus is already set up for you. All you need to do is create a Disqus account and register for a new forum.  <a href="https://help.disqus.com/customer/portal/articles/931017-registering-a-new-forum">https://help.disqus.com/customer/portal/articles/931017-registering-a-new-forum</a></p>
+<p><a href="http://www.rfduino.com/product/rfd22102-rfduino-dip/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22102.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a></p>
 
-<p>The only thing left to do is to set the properties in _config.yml.</p>
+<p>I also got the RFD22121 USB Shield for RFduino which is required to load code onto the RFduino.</p>
 
-<figure class='code'><figcaption><span>_config.yml</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">disqus_show_comment_count</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-</span><span class='line'><span class="l-Scalar-Plain">disqus_short_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">YOUR_DISQUS_ACCOUNT</span>
-</span></code></pre></td></tr></table></div></figure>
+<p><a href="http://www.rfduino.com/product/rfd22121-usb-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22121.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22121" ></a></p>
 
+<p>And finally, I got the RFD22123 Servo Shield for RFduino so that I can build my future robot.</p>
 
-<p>And then make sure that your blog entries have the comments: true option on top.</p>
-
-<h2>Add Google Analytics for Tracking and Monitization</h2>
-
-<p>Google Analytics can track how many people go to your site as well as other things like how long they spend on your site and where they are from.  To utilize this feature, go to the Google Analyitics web site and create an account and get your account id.
-If you navigate to Admin/Tracking Info/Tracking Code then you will see your tracking code snip.
-Google Analytics instructs you to place their code snippet in all of your html files, but in my case I will add the code at the bottom of the _layouts/default.html file.  This file is included in all the pages and posts.</p>
-
-<p>When you follow these instructions, then you are able to log onto Google Analytics and view all the information about page hits.  Spend some time looking through and learning all that google offers.</p>
-
-<p>If you want to display page hits on your blog, then you will need to add XXX to your Octopress pages which will instruct Octopress to go to google analytics and retrieve the hit counts for dislplay.</p>
-
-<p>I dont yet have this display of code hits working quite yet.  But I do see a couple of different ways to do this. I have not used StatCounter, but maybe it works well.</p>
-
-<p>XXXFor others to see also, you can use a third-party API that uses JavaScript. The third-party service tracks pageviews for you and then provides you with a JavaScript snippet that you paste your sidebar or where ever you want the pageviews to show up. StatCounter is an example (didn&rsquo;t verify if it is a good service or not).</p>
-
-<p>There are two other plugins that Octopress provides; jekyll-ga and octopress-page-view.</p>
-
-<p>I am trying page-view over jekyll-ga because i dont see in the jekyll writeup how to display the analytics while page-view does show an example.</p>
-
-<p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;
-I am currently trying to get the verification for the missing tracking code.  This verification is pending&hellip;  more to follow.</p>
-
-<h2>Add Link Analytics and Webmaster Tools</h2>
+<p><a href="http://www.rfduino.com/product/rfd22123-servo-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22123.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a></p>
 </div>
 
 
@@ -153,12 +127,12 @@ I am currently trying to get the verification for the missing tracking code.  Th
 
 
 
-<time class='entry-date' datetime='2015-08-12T11:25:22-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:25 am</span></time>
+<time class='entry-date' datetime='2015-08-13T13:36:02-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:36 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/howto/'>howto</a>, <a class='category' href='/blog/categories/software/'>software</a>
+    <a class='category' href='/blog/categories/arduino/'>arduino</a>, <a class='category' href='/blog/categories/embedded/'>embedded</a>
   
 </span>
 
@@ -167,7 +141,7 @@ I am currently trying to get the verification for the missing tracking code.  Th
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/" data-via="" data-counturl="http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/" data-via="" data-counturl="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/" >Tweet</a>
   
   
   
@@ -178,10 +152,8 @@ I am currently trying to get the verification for the missing tracking code.  Th
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/08/06/startingmyblog2howtowriteapost/" title="Previous Post: Blogging Basics I I, How to Configure and Edit Your Blog Site in Octopress">&laquo; Blogging Basics I I, How to Configure and Edit Your Blog Site in Octopress</a>
+        <a class="basic-alignment left" href="/blog/2015/08/12/blogbasics3/" title="Previous Post: Blogging Basics I I I, Make Your Octopress Blog Active with Comments, Analytics and Product Links">&laquo; Blogging Basics I I I, Make Your Octopress Blog Active with Comments, Analytics and Product Links</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/08/13/rfduinosetup/" title="Next Post: Setup Your first RFduino">Setup Your first RFduino &raquo;</a>
       
     </p>
   </footer>
@@ -255,8 +227,8 @@ I am currently trying to get the verification for the missing tracking code.  Th
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/';
-        var disqus_url = 'http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/';
+        var disqus_identifier = 'http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/';
+        var disqus_url = 'http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Howto | Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/howto/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-13T18:12:28-07:00</updated>
+  <updated>2015-08-14T10:29:49-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -34,13 +34,15 @@ disqus_short_name: YOUR_DISQUS_ACCOUNT
 
 <h2>Add Google Analytics for Tracking and Monitization</h2>
 
-<p>Google Analytics can track how many people go to your site as well as other things like how long they spend on your site and where they are from.  To utilize this feature, go to the Google Analyitics web site and create an account and get your account id.
+<p>Google Analytics can track how many people go to your site as well as other things like how long they spend on your site and where they are from.  To utilize this feature, go to the Google Analyitics web site, create an account and get your account id.
 If you navigate to Admin/Tracking Info/Tracking Code then you will see your tracking code snip.
 Google Analytics instructs you to place their code snippet in all of your html files, but in my case I will add the code at the bottom of the _layouts/default.html file.  This file is included in all the pages and posts.</p>
 
 <p>When you follow these instructions, then you are able to log onto Google Analytics and view all the information about page hits.  Spend some time looking through and learning all that google offers.</p>
 
-<p>If you want to display page hits on your blog, then you will need to add XXX to your Octopress pages which will instruct Octopress to go to google analytics and retrieve the hit counts for dislplay.</p>
+<h2>Display Page Hit Counters on Your Blog</h2>
+
+<p>If you want to display page hits on your blog and pages, then you will need to add XXX to your Octopress pages which will instruct Octopress to go to google analytics and retrieve the hit counts for dislplay.</p>
 
 <p>I dont yet have this display of code hits working quite yet.  But I do see a couple of different ways to do this. I have not used StatCounter, but maybe it works well.</p>
 
@@ -48,10 +50,11 @@ Google Analytics instructs you to place their code snippet in all of your html f
 
 <p>There are two other plugins that Octopress provides; jekyll-ga and octopress-page-view.</p>
 
-<p>I am trying page-view over jekyll-ga because i dont see in the jekyll writeup how to display the analytics while page-view does show an example.</p>
+<p>I am trying page-view over jekyll-ga because I dont see in the jekyll writeup how to display the analytics while page-view does show an example.</p>
 
-<p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;
-I am currently trying to get the verification for the missing tracking code.  This verification is pending&hellip;  more to follow.</p>
+<p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;.  I am currently trying to get the verification for the missing tracking code.  This verification is pending&hellip;  more to follow.  Ok, I finally got this resolved.  But I still do not see my hit counters incrementing.</p>
+
+<p>gem list &ndash;local</p>
 
 <h2>Add Link Analytics and Webmaster Tools</h2>
 ]]></content>

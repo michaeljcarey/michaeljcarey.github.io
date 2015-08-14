@@ -4,7 +4,7 @@
   <title><![CDATA[Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-13T17:11:20-07:00</updated>
+  <updated>2015-08-13T18:11:21-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -31,6 +31,10 @@
 <p>And finally, I got the RFD22123 Servo Shield for RFduino so that I can build my future robot.</p>
 
 <p><a href="http://www.rfduino.com/product/rfd22123-servo-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22123.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a></p>
+
+<p>For now I will focus on the RFduino and the USB shield for prototyping.  Firstly, I will follow the examples from the RFduino web site and document my progress here.  This example is to load a temperature read program into the RFduino.  Then I will download the RFduino Temp app onto my IPhone.</p>
+
+<p><img src="https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/11888122_10207383196518945_5636712147651935213_n.jpg?oh=16af377f40b4619cc1361df160eba836&oe=5645CF5B"></p>
 ]]></content>
   </entry>
   
@@ -328,6 +332,8 @@ The post file has header information in yaml.  You may edit that information.</p
 <img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #3" >
 <img class="right" src="http://placekitten.com/300/500" width="150" height="250" title="Place Kitten #4" alt="An image of a very cute kitten">
 I am having trouble placing all these cats around.  I will learn how to heard these things as soon as I catch my breath.</p>
+
+<p>If I want to link to an image from facebook, I have to right click on the image and copy image location.  Then I can paste that link into my img tag.</p>
 
 <h2>Place a Video</h2>
 

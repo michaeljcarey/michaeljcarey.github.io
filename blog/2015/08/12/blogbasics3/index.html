@@ -140,9 +140,24 @@ Google Analytics instructs you to place their code snippet in all of your html f
 
 <p>I am not sure how  to deal with the google analytics error &lsquo;missing tracking code&rsquo;.  I am currently trying to get the verification for the missing tracking code.  This verification is pending&hellip;  more to follow.  Ok, I finally got this resolved.  But I still do not see my hit counters incrementing.</p>
 
+<h2>Add Google&rsquo;s AdSense to Octopress</h2>
+
+<p>Create an AdSense Account.  Go to the Adsense signup page  <a href="https://www.google.com/adsense/signup">https://www.google.com/adsense/signup</a> and fill out the form.  Once that is done, you will have to wait for an initial approval.  Once you get that, then log on and create an AdUnit.
+Name the AdUnit and select what kind of AdUnit you wish.  Then copy the generated script for pasting into your website.</p>
+
+<p>I elected to place a leaderboard ad just above my blog comment section.  To do this, open source/_layouts/post.html and paste the previously copied script just above the &lt;h1>Comments&lt;/h1> section".</p>
+
+<p>Now after generating and previewing your page, you should see a blank gap just above the comments.  This is due to a wait period for google to review and approve your site for ads.</p>
+
+<p>Next, you will want to link your AdSense account to your Google Analytics site.  I was able to click the &lsquo;link&rsquo; action in the AdSense/Google Analytics Integration page which took me to the Google Analytics site where I was able to finish connecting the link.  Now Google Analytics shows that I have linked my Adsense account.</p>
+
+<p>I still have not entered any bank account information so that Google could actually pay me, but I also need to get more traffic for that to happen.</p>
+
+<p>More to come.</p>
+
 <p>gem list &ndash;local</p>
 
-<h2>Add Link Analytics and Webmaster Tools</h2>
+<h2>Add Webmaster Tools</h2>
 </div>
 
 

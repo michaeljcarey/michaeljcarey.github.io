@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Arduino | Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/arduino/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-17T17:42:37-07:00</updated>
+  <updated>2015-08-17T18:37:21-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -30,6 +30,14 @@ I also got the</p>
 <p>And finally, I got the RFD22123 Servo Shield for RFduino so that I can build my future robot.</p>
 
 <p><a href="http://www.rfduino.com/product/rfd22123-servo-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22123.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a></p>
+
+<p>For now I will focus on the RFduino and the USB shield for prototyping.  Firstly, I will follow the examples from the RFduino web site and document my progress here.  This example is to load a temperature read program into the RFduino.  Then I will download the RFduino Temp app onto my IPhone.</p>
+
+<p>click on products/rfd22102
+scroll down to pdf documents and select RFduino Quickstart guide.
+The quickstart guide does not say anything about installing on linux.
+Go to <a href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a> i am running 1.6.3.  the ide is at 1.6.5,
+I downloaded and installed onto my linux machine.</p>
 ]]></content>
   </entry>
   
@@ -55,17 +63,26 @@ sudo apt-get update &amp;&amp; sudo apt-get install arduino arduino-core
 
 <p>In my case, it is installed in /opt/arduino-1.6.3/ folder but I linked the arduino binary to my desktop.  Because it is a binary executable that I click from my desktop, I must tell my OS that I wish to run and not edit or view it.  I can do this by right clicking on the arduino icon and selecting properties.  Under the permissions tab, I selected the check box for &lsquo;Allow executing file as program&rsquo;.</p>
 
-<p><img src="./images/custom/ardProp.png" width="250" height="250" title="Enable Executable to Run" ></p>
+<p><img src="/images/custom/rfduinoServo/ardProp.png" width="350" height="350" title="Enable Executable to Run" ></p>
 
-<p>Next I connect my USB shield to the RFDuino and insert it into my computer.  The arduino software does not natively recognize the RFduino so there are some steps to download the RFduino code.  The RFduino site documents the installation procedure.</p>
+<p>The arduino software does not natively recognize the RFduino so there are some steps to download the RFduino code.  The RFduino site documents the <a href="https://github.com/RFduino/RFduino/blob/master/README.md">installation procedure</a> so after you install the Arduino software, go to File/Preferences and add <a href="http://rfduino.com/package_rfduino_index.json">http://rfduino.com/package_rfduino_index.json</a> to Additional Board Manager URLs and save.</p>
 
-<p>For now I will focus on the RFduino and the USB shield for prototyping.  Firstly, I will follow the examples from the RFduino web site and document my progress here.  This example is to load a temperature read program into the RFduino.  Then I will download the RFduino Temp app onto my IPhone.</p>
+<p>Now open Tools/Board/Board Manager, and select RFduino at the end of the list and click install.
+After that, select the RFduino will will now appear in the Tools/Board menu
+Now go to Tools/Port and configure that.  On my Linux machine, it appears as: /dev/ttyUSB0.</p>
 
-<p>click on products/rfd22102
-scroll down to pdf documents and select RFduino Quickstart guide.
-The quickstart guide does not say anything about installing on linux.
-Go to <a href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a> i am running 1.6.3.  the ide is at 1.6.5,
-I downloaded and installed onto my linux machine.</p>
+<p>Finally, for Linux, I entered : sudo apt-get install default-jre.</p>
+
+<p>With that installed, connect the USB shield to the RFDuino and insert it into the computer.</p>
+
+<p>Navigate to File/Examples/RFduinoBLE and select the Temperature example sketch.  Then File/Upload to compile, upload and begin execution.</p>
+
+<p>From an IPhone, go to the Apple App Store and search for RFduino Temperature and install it.</p>
+
+<p>Now open the IPhone Temperature app and it should automatically find the RFduino.  Click on the RFduino Text and the temperature should be displayed.</p>
+
+<p><img class="left" src="/images/custom/rfduinoServo/rfDuFound.png" width="350" height="350" title="Enable Executable to Run" >
+<img class="right" src="/images/custom/rfduinoServo/rfDuTemp.png" width="350" height="350" title="Enable Executable to Run" ></p>
 ]]></content>
   </entry>
   

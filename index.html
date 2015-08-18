@@ -9,7 +9,7 @@
   <meta name="author" content="Michael J Carey">
 
   
-  <meta name="description" content="RFDuino is a tiny Arduino that features wireless bluetooth. The tiny shields stack and you can make any number of cool projects with this controller &hellip;">
+  <meta name="description" content="RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth. They also make available an assortment of tiny stackable shields so that &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +85,49 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/08/14/rfduinoServo/">Make An R Fduino Servo Controller</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-08-14T13:36:02-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:36 pm</span></time>
+        
+           | <a href="/blog/2015/08/14/rfduinoServo/#disqus_thread"
+             data-disqus-identifier="http://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  They also make available an assortment of tiny stackable shields so that you can make any number of cool projects.</p>
+
+<p>I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing.  Its tiny, its wireless and I can power it with a usb power pack.  This little project requires the basic wireless rfduino and two shields; a USB shield which not only provides the most convienient way to apply power, but also provides a way to download sketches (programs) into the controller, and a Servo shield which can control up to four servos.</p>
+
+<p>decided that I would make a simple servo controller project, so I purchased 3 boards from them so that I can develop a servo controller.  This post describes initial setup of my project.  Another post will describe how I made a remotely controlled robot.</p>
+
+<p>I got the
+I also got the</p>
+
+<p>And finally, I got the RFD22123 Servo Shield for RFduino so that I can build my future robot.</p>
+
+<p><a href="http://www.rfduino.com/product/rfd22123-servo-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22123.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/08/13/rfduinosetup/">Setup Your First R Fduino</a></h1>
     
     
@@ -104,19 +147,28 @@
   </header>
 
 
-  <div class="entry-content"><p>RFDuino is a tiny Arduino that features wireless bluetooth.  The tiny shields stack and you can make any number of cool projects with this controller.  I ended up buying 3 boards from them so that I can develop a servo controller.  This post describes initial setup of my project.  Another post will describe how I made a remotely controlled robot.</p>
+  <div class="entry-content"><p>RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  They also make available a small assortment of tiny stackable shields including USB, battery, buttons, relays and servo shields so that you can make a number of cool projects.  The website provides documentation and apps for demonstration, but I thought I could show you how I set up my projects in one concise document.</p>
 
-<p>I got the standard RFduino RFD22102 with wireless bluetooth.</p>
+<p>For starters, I purchased the standard RFduino RFD22102 with wireless bluetooth.</p>
 
 <p><a href="http://www.rfduino.com/product/rfd22102-rfduino-dip/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22102.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a></p>
 
-<p>I also got the RFD22121 USB Shield for RFduino which is required to load code onto the RFduino.</p>
+<p>But in order to download any sketches into this arduino, I also needed the RFD22121 USB Shield.  This shield is also an easy way to provide power to the rfduino as I can power everything through a USB charger or power pack.</p>
 
 <p><a href="http://www.rfduino.com/product/rfd22121-usb-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22121.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22121" ></a></p>
 
-<p>And finally, I got the RFD22123 Servo Shield for RFduino so that I can build my future robot.</p>
+<p>For my development system, I ventured over to the <a href="https://www.arduino.cc/">Arduino site</a> and downloaded the <a href="https://www.arduino.cc/en/Main/Software">IDE</a>.  In my case, I am using Ubuntu but they have IDE&rsquo;s for Windows and OS X.  I simply followed the instructions for Ubuntu which was basically;</p>
 
-<p><a href="http://www.rfduino.com/product/rfd22123-servo-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22123.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a></p>
+<figure class='code'><figcaption><span>from Linux console</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">arduino</span> <span class="n">arduino</span><span class="o">-</span><span class="n">core</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In my case, it is installed in /opt/arduino-1.6.3/ folder but I linked the arduino binary to my desktop.  Because it is a binary executable that I click from my desktop, I must tell my OS that I wish to run and not edit or view it.  I can do this by right clicking on the arduino icon and selecting properties.  Under the permissions tab, I selected the check box for &lsquo;Allow executing file as program&rsquo;.</p>
+
+<p><img src="./images/custom/ardProp.png" width="250" height="250" title="Enable Executable to Run" ></p>
+
+<p>Next I connect my USB shield to the RFDuino and insert it into my computer.  The arduino software does not natively recognize the RFduino so there are some steps to download the RFduino code.  The RFduino site documents the installation procedure.</p>
 
 <p>For now I will focus on the RFduino and the USB shield for prototyping.  Firstly, I will follow the examples from the RFduino web site and document my progress here.  This example is to load a temperature read program into the RFduino.  Then I will download the RFduino Temp app onto my IPhone.</p>
 
@@ -634,6 +686,10 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/08/14/rfduinoServo/">Make An R Fduino Servo Controller</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/08/13/rfduinosetup/">Setup Your First R Fduino</a>
       </li>
     
@@ -653,7 +709,7 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/arduino'>arduino (1)</a></li><li><a href='/blog/categories/blog'>blog (3)</a></li><li><a href='/blog/categories/embedded'>embedded (1)</a></li><li><a href='/blog/categories/howto'>howto (3)</a></li><li><a href='/blog/categories/software'>software (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/arduino'>arduino (2)</a></li><li><a href='/blog/categories/blog'>blog (3)</a></li><li><a href='/blog/categories/embedded'>embedded (2)</a></li><li><a href='/blog/categories/howto'>howto (3)</a></li><li><a href='/blog/categories/software'>software (1)</a></li></ul>
 </section>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mjcResponsiveAd -->

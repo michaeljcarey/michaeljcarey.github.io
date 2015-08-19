@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blog | Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-17T18:37:21-07:00</updated>
+  <updated>2015-08-18T18:13:16-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -18,7 +18,10 @@
     <link href="http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3/"/>
     <updated>2015-08-12T11:25:22-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/12/blogbasics3</id>
-    <content type="html"><![CDATA[<p>Welcome to Part 3 of &lsquo;Blogging Basics - Make Your Octopress Blog Site Active with Comments, Analytics and Monetization&rsquo;.  How do you know what others are thinking about your blog, how many people visit your site and what are they doing when they are there?  If you can gain this kind of insight, you can tune your blog for more interest and you can even add advertising links to monetize your site.  This post can get you started on your way to more hits and popularity</p>
+    <content type="html"><![CDATA[<p>Welcome to Part 3 of &lsquo;Blogging Basics - Make Your Octopress Blog Site Active with Comments, Analytics and Monetization&rsquo;.  How do you know what others are thinking about your blog, how many people visit your site and what are they doing when they are there?  If you can gain this kind of insight, you can tune your blog for more interest and you can even add advertising links to monetize your site.  This post can get you started on your way to more hits and popularity.</p>
+
+<!-- more -->
+
 
 <h2>Add Comments with Disqus</h2>
 
@@ -81,6 +84,9 @@ Name the AdUnit and select what kind of AdUnit you wish.  Then copy the generate
     <updated>2015-08-06T18:08:29-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/06/startingmyblog2howtowriteapost</id>
     <content type="html"><![CDATA[<p>Welcome to Part 2 of &lsquo;Blogging Basics - How to Configure and Edit Your Blog Site in Octopress&rsquo;.  Now that we have successfully set up a Basic Octopress Blog site and written our first posts, we are ready to tune up the Blog site and add more functionality.</p>
+
+<!-- more -->
+
 
 <h2>Configuring Octopress</h2>
 
@@ -264,6 +270,9 @@ Download the plugin and follow the instructions in the readme file.  Add the plu
 First off, my blogging platform is powered by Octopress and it is being hosted by the github repository.</p>
 
 <p>This article &ldquo;How to Create a Post on Your Octopress Blog&rdquo; shows how to set up and edit a post.  It also demonstrates how to place certain wigits such as images, video and &lsquo;code blocks&rsquo; onto the post. The follow up article &ldquo;How to Configure and Edit Your Blog Site&rdquo; shows how to change your blog&rsquo;s appearance and add functionality.</p>
+
+<!-- more -->
+
 
 <h2>Create a Post</h2>
 

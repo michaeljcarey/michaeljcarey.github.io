@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Arduino | Michael J Carey]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/arduino/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-18T18:13:16-07:00</updated>
+  <updated>2015-08-19T11:06:26-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -27,14 +27,27 @@
 <p><img src="/images/custom/rfduino/rfDuServoParts25.jpg" title="Parts for my RFduino Servo System" >
 <img src="/images/custom/rfduino/rfDuServo25.jpg" title="Connections for My RFduino Servo System" ></p>
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/Z4ERE7K_RbI" frameborder="0" allowfullscreen></iframe>
+<iframe width="770" height="520" src="http://www.youtube.com/embed/Z4ERE7K_RbI" frameborder="0" ></iframe>
 
 
 <p>Error processing input, expected syntax: {% video url/to/video [url/to/video] [url/to/video] [width height] [url/to/poster] %}</p>
 
 <p><video width='640' height='320' preload='metadata' controls poster='http://s3.imathis.com/video/zero-to-fancy-buttons.png">http://s3.imathis.com/video/zero-to-fancy-buttons.png</a>'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4">http://s3.imathis.com/video/zero-to-fancy-buttons.mp4</a>' ></video></p>
 
-<p>decided that I would make a simple servo controller project, so I purchased 3 boards from them so that I can develop a servo controller.  This post describes initial setup of my project.  Another post will describe how I made a remotely controlled robot.</p>
+<p>and now&hellip;</p>
+
+<p>
+<div class="ratio-4-3 embed-video-container" onclick="var myAnchor = document.getElementById('Z4ERE7K_RbI');var tmpDiv = document.createElement('div');tmpDiv.innerHTML = '&lt;iframe style=&quot;vertical-align:top;width:100%;height:100%;position:absolute;&quot; src=&quot;http://www.youtube.com/embed/Z4ERE7K_RbI?autoplay=1&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;';myAnchor.parentNode.replaceChild(tmpDiv.firstChild, myAnchor);return false;" title="click here to play">
+<a class="youtube-lazy-link" style="width:100%;height:100%;background:#000 url(http://i2.ytimg.com/vi/Z4ERE7K_RbI/0.jpg) center center no-repeat;background-size:contain;position:absolute" href="http://www.youtube.com/watch?v=Z4ERE7K_RbI" id="Z4ERE7K_RbI" onclick="return false;">
+<div class="youtube-lazy-link-div"></div>
+<div class="youtube-lazy-link-info">RFduino Servo System is Spastic</div>
+</a>
+<div class="video-info" >An RFduino Servo System acting a little spastic.</div>
+</div>
+
+</p>
+
+<p>x decided that I would make a simple servo controller project, so I purchased 3 boards from them so that I can develop a servo controller.  This post describes initial setup of my project.  Another post will describe how I made a remotely controlled robot.</p>
 
 <p>I got the
 I also got the</p>

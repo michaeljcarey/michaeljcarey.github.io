@@ -1,0 +1,15 @@
+<hgroup>
+  <h1><a href="{{ root_url }}/">{{ site.title }}</a></h1>
+  {% if site.subtitle %}
+    <h2>{{ site.subtitle }}</h2>
+  {% endif %}
+</hgroup>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- MjcLeaderboardAd -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-3685467552635186"
+     data-ad-slot="4585493157"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>

@@ -1,0 +1,8 @@
+---
+layout: page
+title: "my super awesome first page"
+date: 2015-08-05 13:11
+comments: true
+sharing: true
+footer: true
+---

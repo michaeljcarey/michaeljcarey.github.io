@@ -1,0 +1,4 @@
+<section>
+  <h1>Blog Stats</h1>
+  <span>{% _ga %}</span>
+</section>

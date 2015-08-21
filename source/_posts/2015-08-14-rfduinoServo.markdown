@@ -2,6 +2,7 @@
 layout: post
 title: "Make an RFduino Servo Controller"
 date: 2015-08-14 13:36:02 -0700
+author: Michael J Carey
 comments: true
 categories: [arduino, embedded]
 ---
@@ -100,6 +101,31 @@ My servo system is acting a little sick as you can see from the YouTube video.  
 {% youtube Z4ERE7K_RbI %}
 
 On to my next robot project.
+
+<meta itemprop="name" content="[ Make an RFduino Servo Controller ]" />
+<meta itemprop="image" content="[ https://michaeljcarey.github.io/images/custom/rfduino/rfDuSetup25.jpg ]" />
+<meta itemprop="description" content="[ I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing. ]" />
+
+<meta name="description" content="[ I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing ]" />
+<meta name="author" content="[ AUTHOR FULL NAME ]" />
+
+<meta property="article:author" content="[ GOOGLE+ AUTHOR URL ]" />
+<meta property="article:published_time" content="[ PUBLISHED TIMESTAMP ]" />
+<meta property="article:section" content="[ CATEGORY ]" />
+
+<meta property="og:title" content="[ Make an RFduino Servo Controller ]" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="[ I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing ]" />
+<meta property="og:image" content="[ LISTING IMAGE ]" />
+<meta property="og:url" content="[ CANONICAL URL OF ITEM ]" />
+<meta property="og:site_name" content="[ WEBSITE NAME ]" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[ Make an RFduino Servo Controller ]">
+<meta name="twitter:description" content="[ I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing ]">
+<meta name="twitter:image" content="[ LISTING IMAGE ]">
+<meta name="twitter:url" content="[ CANONICAL URL OF ITEM ]">
+
 
 
 

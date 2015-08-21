@@ -10,7 +10,6 @@ sass.old
 source.old
 source/_stash
 source/stylesheets/screen.css
-imagesRawMJC/*.*
 vendor
 node_modules
 Gemfile.lock

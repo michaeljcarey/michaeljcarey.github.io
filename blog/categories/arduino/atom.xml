@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Arduino | Michael J Carey Software Blog]]></title>
+  <title><![CDATA[Category: arduino | Michael J Carey Software Blog]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/arduino/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-20T18:55:17-07:00</updated>
+  <updated>2015-08-21T12:31:38-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Make An R Fduino Servo Controller]]></title>
+    <title type="html"><![CDATA[Make an RFduino Servo Controller]]></title>
     <link href="http://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo/"/>
     <updated>2015-08-14T13:36:02-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo</id>
@@ -197,7 +197,7 @@ https://michaeljcarey.github.io</div>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Setup Your First R Fduino]]></title>
+    <title type="html"><![CDATA[Setup Your first RFduino]]></title>
     <link href="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/"/>
     <updated>2015-08-13T13:36:02-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup</id>

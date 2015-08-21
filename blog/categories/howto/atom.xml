@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Howto | Michael J Carey Software Blog]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/howto/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-20T18:22:57-07:00</updated>
+  <updated>2015-08-20T18:55:17-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -423,29 +423,29 @@ The box is coded as such:
 </span>
 </span><span class='line'>
 </span><span class='line'>
-</span><span class='line'><span class="c1">##LAUNCH THE BLOG LOCALLY</span>
+</span><span class='line'><span class="c1">##Launch your Blog Locally or Globally</span>
 </span><span class='line'><span class="no">Open</span> <span class="n">a</span> <span class="n">bash</span> <span class="n">shell</span> <span class="ow">and</span> <span class="ss">type</span><span class="p">:</span>
 </span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">source</span> <span class="o">~</span><span class="sr">/.bash_profile</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>Generate and preview your local changes at &lsquo;<a href="http://localhost:4000/">http://localhost:4000/</a>&rsquo; type:
-<code>ruby generate and preview your local changes https://michaeljcarey.github.io Source Article
+<p>To see your output blog, use these commands:
+ * &lsquo;generate&rsquo; will generate your blog from source jekyll to html.<br/>
+ * &lsquo;deploy&rsquo; will copy the generated files into the _deploy/ folder, then add them to git, commit and push them to the master branch.
+ * &lsquo;preview&rsquo; will generate and launch a local web server at at &lsquo;<a href="http://localhost:4000/">http://localhost:4000/</a>&rsquo;
+<code>ruby generate launch and preview commands https://michaeljcarey.github.io Source Article
 rake generate
+rake deploy
 rake preview
 </code></p>
 
-<h2>LAUNCH THE BLOG FOR THE WORLD TO SEE</h2>
-
-<p>Commit my local changes back to my github &lsquo;source branch&rsquo; and move them to the &lsquo;master branch&rsquo;.  Moving them to the master branch causes my blog site to automaticaly update at: &lsquo;<a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a>&rsquo;.</p>
-
-<p>Publish the changes to github master&hellip;
-<code>ruby Commit changes to github https://michaeljcarey.github.io Source Article
-rake generate
-rake deploy
-</code>
-.</p>
+<p>To commit your source code into github, do the following.
+<code>ruby Commit your source code https://michaeljcarey.github.io Source Article
+git add .
+git commit -m 'your message'
+git push origin source
+</code></p>
 ]]></content>
   </entry>
   

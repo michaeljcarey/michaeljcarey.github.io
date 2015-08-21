@@ -4,7 +4,7 @@
   <title><![CDATA[Michael J Carey Software Blog]]></title>
   <link href="http://michaeljcarey.github.io/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-20T18:22:57-07:00</updated>
+  <updated>2015-08-20T18:55:17-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -632,7 +632,7 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
     assert_correct css, &lt;&lt;-CSS</code></pre></noscript></div>
 
 
-<h2>LAUNCH THE BLOG LOCALLY</h2>
+<h2>Launch your Blog Locally or Globally</h2>
 
 <p>Open a bash shell and type:</p>
 
@@ -641,29 +641,32 @@ Hmmm, too much trouble at the moment.  I am imagining that I would have to put m
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Generate and preview your local changes at &lsquo;<a href="http://localhost:4000/">http://localhost:4000/</a>&rsquo; type:</p>
+<p>To see your output blog, use these commands:
+ * &lsquo;generate&rsquo; will generate your blog from source jekyll to html.<br/>
+ * &lsquo;deploy&rsquo; will copy the generated files into the _deploy/ folder, then add them to git, commit and push them to the master branch.
+ * &lsquo;preview&rsquo; will generate and launch a local web server at at &lsquo;<a href="http://localhost:4000/">http://localhost:4000/</a>&rsquo;</p>
 
-<figure class='code'><figcaption><span>generate and preview your local changes</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>generate launch and preview commands</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
+<span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
+</span><span class='line'><span class="n">rake</span> <span class="n">deploy</span>
 </span><span class='line'><span class="n">rake</span> <span class="n">preview</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>LAUNCH THE BLOG FOR THE WORLD TO SEE</h2>
+<p>To commit your source code into github, do the following.</p>
 
-<p>Commit my local changes back to my github &lsquo;source branch&rsquo; and move them to the &lsquo;master branch&rsquo;.  Moving them to the master branch causes my blog site to automaticaly update at: &lsquo;<a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a>&rsquo;.</p>
-
-<p>Publish the changes to github master&hellip;</p>
-
-<figure class='code'><figcaption><span>Commit changes to github</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Commit your source code</span><a href='https://michaeljcarey.github.io'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">generate</span>
-</span><span class='line'><span class="n">rake</span> <span class="n">deploy</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</span><span class='line'><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;your message&#39;</span>
+</span><span class='line'><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">source</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>.</p>
+
 ]]></content>
   </entry>
   

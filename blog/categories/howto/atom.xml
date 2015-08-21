@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Howto | Michael J Carey]]></title>
+  <title><![CDATA[Category: Howto | Michael J Carey Software Blog]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/howto/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-20T12:56:50-07:00</updated>
+  <updated>2015-08-20T18:22:57-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -314,11 +314,9 @@ The post file has header information in yaml.  You may edit that information.</p
 
 <p>I have put some junk text that I thought was a comment at the bottom of this post.  As I learn more, I will put at the top.</p>
 
-<h2>Place a Comment</h2>
-
 <h2>what is &lt;! &ndash;more&ndash;!></h2>
 
-<p>Description needed.</p>
+<p>This tag tells the blog site where to stop showing your post.  This way your older posts can show just the beginning paragraph which makes it easier to scroll down and see all of the older posts.</p>
 
 <h2>Place an Image</h2>
 

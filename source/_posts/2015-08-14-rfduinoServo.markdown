@@ -3,7 +3,6 @@ layout: post
 title: "Make an RFduino Servo Controller"
 date: 2015-08-14 13:36:02 -0700
 author: Michael J Carey
-comments: true
 categories: [arduino, embedded]
 ---
 

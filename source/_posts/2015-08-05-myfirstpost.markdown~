@@ -108,25 +108,26 @@ Another slick way to embed code snippets is with Gist.  In this case we get a vd
 {% gist 4321346 gistfile1.diff %}
 
 
-##LAUNCH THE BLOG LOCALLY
+##Launch your Blog Locally or Globally
 Open a bash shell and type:
 ``` ruby Set some environment variables https://michaeljcarey.github.io Source Article
 source ~/.bash_profile
 ```
 
-Generate and preview your local changes at 'http://localhost:4000/' type:
-``` ruby generate and preview your local changes https://michaeljcarey.github.io Source Article
+To see your output blog, use these commands:
+ * 'generate' will generate your blog from source jekyll to html.  
+ * 'deploy' will copy the generated files into the _deploy/ folder, then add them to git, commit and push them to the master branch.
+ * 'preview' will generate and launch a local web server at at 'http://localhost:4000/' 
+``` ruby generate launch and preview commands https://michaeljcarey.github.io Source Article
 rake generate
+rake deploy
 rake preview
 ```
 
-##LAUNCH THE BLOG FOR THE WORLD TO SEE
-Commit my local changes back to my github 'source branch' and move them to the 'master branch'.  Moving them to the master branch causes my blog site to automaticaly update at: 'https://michaeljcarey.github.io'.
-
-
-Publish the changes to github master...
-``` ruby Commit changes to github https://michaeljcarey.github.io Source Article
-rake generate
-rake deploy
+To commit your source code into github, do the following.
+``` ruby Commit your source code https://michaeljcarey.github.io Source Article
+git add .
+git commit -m 'your message'
+git push origin source
 ```
-.
+

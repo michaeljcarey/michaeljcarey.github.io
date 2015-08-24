@@ -6,7 +6,7 @@ author: Michael J Carey
 categories: [arduino, embedded]
 ---
 
-An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  An assortment of tiny stackable shields are made available so that you can make a number of cool projects. To learn how to set up an RFduino, see <a href="/blog/2015/08/13/rfduinosetup/">Setup Your First RFduino</a>.
+An RFduino is a tiny fingertip sized Arduino that features wireless bluetooth.  An assortment of tiny stackable shields are made available so that you can make a number of cool projects. To learn how to set up an RFduino, see <a href="/blog/2015/08/13/rfduinosetup/">Setup Your First RFduino</a>.
 
 I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing because it is tiny, wireless and I can power it with a usb power pack which makes it completely self contained and it will be controlled wirelessly using an iphone.
 

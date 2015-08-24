@@ -72,16 +72,14 @@ I still have not entered any bank account information so that Google could actua
 More to come.
 
 
-
-
-
 gem list --local
 
 
 
-
-
-
-
 ##Add Webmaster Tools
+
+
+
+
+
 

@@ -27,14 +27,12 @@ If you navigate to Admin/Tracking Info/Tracking Code then you will see your trac
 Google Analytics instructs you to place their code snippet in all of your html files.  But it looks like Octopress has already provided a mechanism for this.  In _includes/ there is a google_analytics.html file and if you include that file in _includes/after_footer.html then it will pick up the google_analytics_tracking_id in the _config.yml.
 
 ``` yaml Add to bottom of _includes/after_footer.html https://michaeljcarey.github.io Source Article
-{% comment %}
-  Add content to be output at the bottom of each page. (You might use this for analytics scripts, for example)
-{% endcomment %}
 {% include google_analytics.html %}
 ```
 
 I have seen other Octopress bloggers take the script that Google Analytics provides and copy it into the _includes/google_analytics.html file, but I dont think that is necessary.
 
+Other <a href="http://stefanalfbo.github.io/blog/2013/04/17/octopress-google-analytics-github-pages/">Octopress bloggers</a> recommend adding an additional line into _includes/google_analytics.html like this:
 
 ``` yaml _includes/google_analytics.html https://michaeljcarey.github.io Source Article
     _gaq.push(['_setAccount', '{{ site.google_analytics_tracking_id }}']);

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: embedded | Michael J Carey Software Blog]]></title>
+  <title><![CDATA[Category: embedded | Michael's Software Blog]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/embedded/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-21T12:31:38-07:00</updated>
+  <updated>2015-08-24T10:48:37-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -18,7 +18,7 @@
     <link href="http://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo/"/>
     <updated>2015-08-14T13:36:02-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo</id>
-    <content type="html"><![CDATA[<p>An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  An assortment of tiny stackable shields are made available so that you can make a number of cool projects. To learn how to set up an RFduino, see <a href="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/">Setup Your First RFduino</a>.</p>
+    <content type="html"><![CDATA[<p>An RFduino is a tiny fingertip sized Arduino that features wireless bluetooth.  An assortment of tiny stackable shields are made available so that you can make a number of cool projects. To learn how to set up an RFduino, see <a href="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/">Setup Your First RFduino</a>.</p>
 
 <p>I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing because it is tiny, wireless and I can power it with a usb power pack which makes it completely self contained and it will be controlled wirelessly using an iphone.</p>
 
@@ -228,7 +228,10 @@ Now go to Tools/Port and configure that.  On my Linux machine, it appears as: /d
 
 <p>You may also need a <a href="http://www.ftdichip.com/Drivers/VCP.htm">Virtual COM Port Driver</a>.</p>
 
-<p>Finally, for Linux, I entered : sudo apt-get install default-jre.</p>
+<p>Finally, for Linux, enter:
+<code>ruby from Linux console https://michaeljcarey.github.io Source Article
+sudo apt-get install default-jre.
+</code></p>
 
 <p>With that installed, connect the USB shield to the RFDuino and insert it into the computer.
 <img src="/images/custom/rfduino/rfDuSetup25.jpg" title="Downloading to RFduino" ></p>
@@ -241,6 +244,38 @@ Now go to Tools/Port and configure that.  On my Linux machine, it appears as: /d
 
 <p><img class="left" src="/images/custom/rfduino/rfDuFound.png" width="350" height="350" title="RFduino Devices Fount" >
 <img class="right" src="/images/custom/rfduino/rfDuTemp.png" width="350" height="350" title="RFduino Temperature Screen" ></p>
+
+<h3>Summary</h3>
+
+<p>This is just the simplest project.  Now that you have seen the basics of programming with the Arduino IDE and RFduino, go out and create all kinds of interesting projects.  Do cool things.</p>
+
+<p><meta itemprop="name" content="Setup Your first RFduino" />
+<meta itemprop="image" content="https://michaeljcarey.github.io/images/custom/rfduino/rfDuSetup25.jpg" />
+<meta itemprop="description" content="An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  Learn how to create your first project with this device." /></p>
+
+<p><meta name="description" content="An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  Learn how to create your first project with this device." />
+<meta name="author" content="Michael J Carey" /></p>
+
+<!-- 
+<meta property="article:author" content="[ GOOGLE+ AUTHOR URL ]" />
+-->
+
+
+<p><meta property="article:published_time" content="2015-08-14 13:36:02 -0700" />
+<meta property="article:section" content="Arduino" /></p>
+
+<p><meta property="og:title" content="Setup Your first RFduino" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  Learn how to create your first project with this device." />
+<meta property="og:image" content="https://michaeljcarey.github.io/images/custom/rfduino/rfDuSetup25.jpg" />
+<meta property="og:url" content="https://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo/" />
+<meta property="og:site_name" content="michaeljcarey.github.io" /></p>
+
+<p><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Setup Your first RFduino">
+<meta name="twitter:description" content="An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  Learn how to create your first project with this device.">
+<meta name="twitter:image" content="https://michaeljcarey.github.io/images/custom/rfduino/rfDuSetup25.jpg">
+<meta name="twitter:url" content="https://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo/"></p>
 ]]></content>
   </entry>
   

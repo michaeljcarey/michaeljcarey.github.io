@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arduino | Michael's Software Blog]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/arduino/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-08-24T10:48:37-07:00</updated>
+  <updated>2015-08-24T15:40:08-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -18,19 +18,19 @@
     <link href="http://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo/"/>
     <updated>2015-08-14T13:36:02-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/14/rfduinoServo</id>
-    <content type="html"><![CDATA[<p>An RFduino is a tiny fingertip sized Arduino that features wireless bluetooth.  An assortment of tiny stackable shields are made available so that you can make a number of cool projects. To learn how to set up an RFduino, see <a href="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/">Setup Your First RFduino</a>.</p>
+    <content type="html"><![CDATA[<p>An RFduino is a tiny fingertip sized Arduino that features wireless Bluetooth.  An assortment of tiny stackable shields are made available so that you can make a number of cool projects. To learn how to set up an RFduino, see <a href="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/">Setup Your First RFduino</a>.</p>
 
-<p>I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing because it is tiny, wireless and I can power it with a usb power pack which makes it completely self contained and it will be controlled wirelessly using an iphone.</p>
+<p>I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing because it is tiny, wireless and I can power it with a USB power pack which makes it completely self contained and it will be controlled wirelessly using an Iphone.</p>
 
 <h3>What You Need</h3>
 
-<p>This little project requires the basic wireless rfduino plus their USB and servo shields. The USB shield not only provides the most convienient way to apply power, but also provides a way to download sketches (programs) into the controller.  The Servo shield can control up to four servos.</p>
+<p>This little project requires the basic wireless RFduino plus their USB and servo shields. The USB shield not only provides the most convenient way to apply power, but also provides a way to download sketches (programs) into the controller.  The Servo shield can control up to four servos.</p>
 
 <p><a href="http://www.rfduino.com/product/rfd22102-rfduino-dip/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22102.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a>
 <a href="http://www.rfduino.com/product/rfd22121-usb-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22121.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22121" ></a>
 <a href="http://www.rfduino.com/product/rfd22123-servo-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22123.Prospective.Top_.png" width="250" height="250" title="RFduino RFD22102" ></a></p>
 
-<p>I also need some servos to drive and I found a neat little <a href="https://www.adafruit.com/products/1967">Mini Pan-Tilt Kit</a> for under $20 from Adafruit.  You can use any servos that you wish in your project.  To power it all, I decided to use a USB Power Bank as a battery. I happened to find one that suits my need in Lumsing. I wanted to keep my cabling simple and off the shelf so I got a usb to barrel jack cable, and a <a href"http://www.adafruit.com/products/368>Female DC Power Adapter</a> which I also picked up from adafruit.</p>
+<p>I also need some servos to drive and I found a neat little <a href="https://www.adafruit.com/products/1967">Mini Pan-Tilt Kit</a> for under $20 from Adafruit.  You can use any servos that you wish in your project.  To power it all, I decided to use a USB Power Bank as a battery. I happened to find one that suits my need in Lumsing. I wanted to keep my cabling simple and off the shelf so I got a usb to barrel jack cable, and a <a href"http://www.adafruit.com/products/368>Female DC Power Adapter</a> which I also picked up from Adafruit.</p>
 
 <p><img src="/images/custom/rfduino/rfDuServoParts25.jpg" title="Parts for my RFduino Servo System" ></p>
 
@@ -38,7 +38,7 @@
 
 <p>Connect the RFduino and USB shield together and plug into your computer.
 <img src="/images/custom/rfduino/rfDuSetup25.jpg" title="Programming the RFduino" >
-Open the Arduino IDE.  Follow the <a href="">RFduino Setup</a> post if you dont know how to do this.  Open the sketch from File/Examples/RFduinoBLE/Servo in the IDE.
+Open the Arduino IDE.  Follow the <a href="">RFduino Setup</a> post if you don&rsquo;t know how to do this.  Open the sketch from File/Examples/RFduinoBLE/Servo in the IDE.
 Which basically looks like this:
 <figure class='code'><figcaption><span>RFduino Servo Sketch <a href="https://michaeljcarey.github.io">https://michaeljcarey.github.io</a> Source Article</p></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -113,11 +113,11 @@ Which basically looks like this:
 </span><span class='line'>    <span class="n">s4</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">degree</span><span class="p">);</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
-And download the the servo sketch into the arduino.</p>
+And download the the servo sketch into the Arduino.</p>
 
 <h3>Some Assembly Required</h3>
 
-<p>Strip two small pieces of wire and connect the +v(s) and gnds on the terminal blocks of the servo shield to the ones on the DC Power Adaptor.</p>
+<p>Strip two small pieces of wire and connect the +v(s) and gnds on the terminal blocks of the servo shield to the ones on the DC Power Adapter.</p>
 
 <p><img src="/images/custom/rfduino/rfDuServoConn25.jpg" title="The Servo Shield and DC Connector" ></p>
 
@@ -141,8 +141,8 @@ And download the the servo sketch into the arduino.</p>
 <h3>Get the Iphone App</h3>
 
 <p>Go to the App Store on your Iphone and search for RFduino.
-Find the Servo App and install it.
-Once installed, turn on the Power Bank, then open the Iphone Servo App. The App should discover the RFduino and display it in the app. Click on the found RFduino and it should open a control panel.</p>
+Find the Servo app and install it.
+Once installed, turn on the Power Bank, then open the Iphone Servo App. The app should discover the RFduino and display it in the app. Click on the found RFduino and it should open a control panel.</p>
 
 <p><img src="/images/custom/rfduino/rfDuFound2.png" width="350" title="System" >
 <img src="/images/custom/rfduino/rfDuServoApp.png" width="350" title="System" ></p>
@@ -201,12 +201,12 @@ https://michaeljcarey.github.io</div>
     <link href="http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup/"/>
     <updated>2015-08-13T13:36:02-07:00</updated>
     <id>http://michaeljcarey.github.io/blog/2015/08/13/rfduinosetup</id>
-    <content type="html"><![CDATA[<p>An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  They also make available a small assortment of tiny stackable shields including USB, battery, buttons, relays and servo shields so that you can make a number of cool projects.  The website provides documentation and apps for demonstration, but I thought I could show you how I set up my projects in one concise document.</p>
+    <content type="html"><![CDATA[<p>An RFduino is a tiny fingertip sized Arduino that features wireless Bluetooth.  They also make available a small assortment of tiny stackable shields including USB, battery, buttons, relays and servo shields so that you can make a number of cool projects.  The website provides documentation and apps for demonstration, but I thought I could show you how I set up my projects in one concise document.</p>
 
 <!-- more -->
 
 
-<p>For starters, I purchased the standard RFduino RFD22102 with wireless bluetooth. But in order to download any sketches into this arduino, I also needed the RFD22121 USB Shield.  This shield is also an easy way to provide power to the rfduino as I can power everything through a USB charger or power pack.</p>
+<p>For starters, I purchased the standard RFduino RFD22102 with wireless Bluetooth . But in order to download any sketches into this Arduino, I also needed the RFD22121 USB Shield.  This shield is also an easy way to provide power to the RFduino as I can power everything through a USB charger or power pack.</p>
 
 <p><a href="http://www.rfduino.com/product/rfd22102-rfduino-dip/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22102.Prospective.Top_.png" width="350" height="350" title="RFduino RFD22102" ></a>
 <a href="http://www.rfduino.com/product/rfd22121-usb-shield-for-rfduino/index.html"><img src="http://www.rfduino.com/wp-content/uploads/2014/03/RFD22121.Prospective.Top_.png" width="350" height="350" title="RFduino RFD22121" ></a></p>
@@ -216,11 +216,11 @@ https://michaeljcarey.github.io</div>
 sudo apt-get update &amp;&amp; sudo apt-get install arduino arduino-core
 </code></p>
 
-<p>In my case, it is installed in /opt/arduino-1.6.3/ folder but I linked the arduino binary to my desktop.  Because it is a binary executable that I click from my desktop, I must tell my OS that I wish to run and not edit or view it.  I can do this by right clicking on the arduino icon and selecting properties.  Under the permissions tab, I selected the check box for &lsquo;Allow executing file as program&rsquo;.</p>
+<p>In my case, it is installed in /opt/arduino-1.6.3/ folder but I linked the Arduino binary to my desktop.  Because it is a binary executable that I click from my desktop, I must tell my OS that I wish to run and not edit or view it.  I can do this by right clicking on the Arduino icon and selecting properties.  Under the permissions tab, I selected the check box for &lsquo;Allow executing file as program&rsquo;.</p>
 
 <p><img src="/images/custom/rfduino/ardProp.png" width="550" height="450" title="Enable Executable to Run" ></p>
 
-<p>The arduino software does not natively recognize the RFduino so there are some steps to download the RFduino code.  The RFduino site documents the <a href="https://github.com/RFduino/RFduino/blob/master/README.md">installation procedure</a> so after you install the Arduino software, go to File/Preferences and add <a href="http://rfduino.com/package_rfduino_index.json">http://rfduino.com/package_rfduino_index.json</a> to Additional Board Manager URLs and save.</p>
+<p>The Arduino software does not natively recognize the RFduino so there are some steps to download the RFduino code.  The RFduino site documents the <a href="https://github.com/RFduino/RFduino/blob/master/README.md">installation procedure</a> so after you install the Arduino software, go to File/Preferences and add <a href="http://rfduino.com/package_rfduino_index.json">http://rfduino.com/package_rfduino_index.json</a> to Additional Board Manager URLs and save.</p>
 
 <p>Now open Tools/Board/Board Manager, and select RFduino at the end of the list and click install.
 After that, select the RFduino will will now appear in the Tools/Board menu
@@ -233,14 +233,14 @@ Now go to Tools/Port and configure that.  On my Linux machine, it appears as: /d
 sudo apt-get install default-jre.
 </code></p>
 
-<p>With that installed, connect the USB shield to the RFDuino and insert it into the computer.
+<p>With that installed, connect the USB shield to the RFduino and insert it into the computer.
 <img src="/images/custom/rfduino/rfDuSetup25.jpg" title="Downloading to RFduino" ></p>
 
 <p>Navigate to File/Examples/RFduinoBLE and select the Temperature example sketch.  Then File/Upload to compile, upload and begin execution.</p>
 
-<p>From an IPhone, go to the Apple App Store and search for RFduino Temperature and install it.</p>
+<p>From an Iphone, go to the Apple App Store and search for RFduino Temperature and install it.</p>
 
-<p>Now open the IPhone Temperature app and it should automatically find the RFduino.  Click on the RFduino Text and the temperature should be displayed.</p>
+<p>Now open the Iphone Temperature app and it should automatically find the RFduino.  Click on the RFduino Text and the temperature should be displayed.</p>
 
 <p><img class="left" src="/images/custom/rfduino/rfDuFound.png" width="350" height="350" title="RFduino Devices Fount" >
 <img class="right" src="/images/custom/rfduino/rfDuTemp.png" width="350" height="350" title="RFduino Temperature Screen" ></p>

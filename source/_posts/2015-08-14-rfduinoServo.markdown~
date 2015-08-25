@@ -105,7 +105,6 @@ Ok, after a bit of digging around, I discovered that although the RFduino BLE wo
 <iframe src="http://docs.google.com/gview?url=http://www.rfduino.com/wp-content/uploads/2014/03/rfd22123_r403_b001_sch.pdf&embedded=true" 
 style="width:800px; height:550px;" frameborder="0"></iframe>
 
-
 The solution is to use a true servo shield which provides the proper PWM handling.  In that way, the controller would only need to write two registers (width, period) per servo.  Adafruit provides such a board which I have but its out of scope of this project.
 
 *Note:  Another possible solution is to use the RFduino and servo shield without the BLE, but in my opinion, it is an inferior design because you are using a micro controller to perform very simple but real time hardware task.

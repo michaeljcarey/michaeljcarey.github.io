@@ -6,25 +6,25 @@ author: Michael J Carey
 categories: [arduino, embedded]
 ---
 
-An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  An assortment of tiny stackable shields are made available so that you can make a number of cool projects. To learn how to set up an RFduino, see <a href="/blog/2015/08/13/rfduinosetup/">Setup Your First RFduino</a>.
+An RFduino is a tiny fingertip sized Arduino that features wireless Bluetooth.  An assortment of tiny stackable shields are made available so that you can make a number of cool projects. To learn how to set up an RFduino, see <a href="/blog/2015/08/13/rfduinosetup/">Setup Your First RFduino</a>.
 
-I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing because it is tiny, wireless and I can power it with a usb power pack which makes it completely self contained and it will be controlled wirelessly using an iphone.
+I have been wanting to make a simple servo controller project lately and I thought that this little package is the coolest thing because it is tiny, wireless and I can power it with a USB power pack which makes it completely self contained and it will be controlled wirelessly using an Iphone.
 
 ###What You Need
-This little project requires the basic wireless rfduino plus their USB and servo shields. The USB shield not only provides the most convienient way to apply power, but also provides a way to download sketches (programs) into the controller.  The Servo shield can control up to four servos.
+This little project requires the basic wireless RFduino plus their USB and servo shields. The USB shield not only provides the most convenient way to apply power, but also provides a way to download sketches (programs) into the controller.  The Servo shield can control up to four servos.
 
 [{% img http://www.rfduino.com/wp-content/uploads/2014/03/RFD22102.Prospective.Top_.png 250 250 RFduino RFD22102 %}](http://www.rfduino.com/product/rfd22102-rfduino-dip/index.html)
 [{% img http://www.rfduino.com/wp-content/uploads/2014/03/RFD22121.Prospective.Top_.png 250 250 RFduino RFD22121 %}](http://www.rfduino.com/product/rfd22121-usb-shield-for-rfduino/index.html)
 [{% img http://www.rfduino.com/wp-content/uploads/2014/03/RFD22123.Prospective.Top_.png 250 250 RFduino RFD22102 %}](http://www.rfduino.com/product/rfd22123-servo-shield-for-rfduino/index.html)
 
-I also need some servos to drive and I found a neat little <a href="https://www.adafruit.com/products/1967">Mini Pan-Tilt Kit</a> for under $20 from Adafruit.  You can use any servos that you wish in your project.  To power it all, I decided to use a USB Power Bank as a battery. I happened to find one that suits my need in Lumsing. I wanted to keep my cabling simple and off the shelf so I got a usb to barrel jack cable, and a <a href"http://www.adafruit.com/products/368>Female DC Power Adapter</a> which I also picked up from adafruit.
+I also need some servos to drive and I found a neat little <a href="https://www.adafruit.com/products/1967">Mini Pan-Tilt Kit</a> for under $20 from Adafruit.  You can use any servos that you wish in your project.  To power it all, I decided to use a USB Power Bank as a battery. I happened to find one that suits my need in Lumsing. I wanted to keep my cabling simple and off the shelf so I got a usb to barrel jack cable, and a <a href"http://www.adafruit.com/products/368>Female DC Power Adapter</a> which I also picked up from Adafruit.
 
 {% img /images/custom/rfduino/rfDuServoParts25.jpg Parts for my RFduino Servo System %}
 
 ###Program the RFduino
 Connect the RFduino and USB shield together and plug into your computer. 
 {% img /images/custom/rfduino/rfDuSetup25.jpg Programming the RFduino %}
-Open the Arduino IDE.  Follow the <a href="">RFduino Setup</a> post if you dont know how to do this.  Open the sketch from File/Examples/RFduinoBLE/Servo in the IDE.
+Open the Arduino IDE.  Follow the <a href="">RFduino Setup</a> post if you don't know how to do this.  Open the sketch from File/Examples/RFduinoBLE/Servo in the IDE.
 Which basically looks like this:
 ``` ruby RFduino Servo Sketch https://michaeljcarey.github.io Source Article
 #include <Servo.h>
@@ -63,10 +63,10 @@ void RFduinoBLE_onReceive(char *data, int len){
     s4.write(degree);
 }
 ```
-And download the the servo sketch into the arduino.
+And download the the servo sketch into the Arduino.
 
 ###Some Assembly Required
-Strip two small pieces of wire and connect the +v(s) and gnds on the terminal blocks of the servo shield to the ones on the DC Power Adaptor.
+Strip two small pieces of wire and connect the +v(s) and gnds on the terminal blocks of the servo shield to the ones on the DC Power Adapter.
 
 {% img /images/custom/rfduino/rfDuServoConn25.jpg The Servo Shield and DC Connector %}
 
@@ -87,19 +87,34 @@ Plug both the RFduino and Servo Shield power to the Power Bank.
 
 ###Get the Iphone App
 Go to the App Store on your Iphone and search for RFduino.
-Find the Servo App and install it.
-Once installed, turn on the Power Bank, then open the Iphone Servo App. The App should discover the RFduino and display it in the app. Click on the found RFduino and it should open a control panel. 
+Find the Servo app and install it.
+Once installed, turn on the Power Bank, then open the Iphone Servo App. The app should discover the RFduino and display it in the app. Click on the found RFduino and it should open a control panel. 
 
 {% img /images/custom/rfduino/rfDuFound2.png 350 System %}
 {% img /images/custom/rfduino/rfDuServoApp.png 350 System %}
 
 You should be able to select servo channels and then move the slider and your new Servo System should respond.
 
-My servo system is acting a little sick as you can see from the YouTube video.  I will attempt to resolve this with the manufacturer.
+My servo system is acting a little sick as you can see from the YouTube video.  What is going on?
 
 {% youtube Z4ERE7K_RbI %}
 
+<br/>
+Ok, after a bit of digging around, I discovered that although the RFduino BLE works well and although the RFduino Servo Shield also works well (in theory), they do not work well together.  The way the servo's are driven is by way of a Pulse Width Modulation.  In the above example, the RFduino is actually generating the PWM signal itself, but whenever it needs to service the Bluetooth, it switches tasks and leaves the PWM unattended.  This causes a large jitter.  The best PWM signals are generated by using a couple of counters, one for Pulse Width and the other for Pulse Duration.  If this were implemented with counters, then the RFduino would not be relied upon as a 'real time' device.  One look at the RFduino Servo Shield Schematic and you can see that indeed there is only a Voltage regulators and a quad amplifier.
+
+<iframe src="http://docs.google.com/gview?url=http://www.rfduino.com/wp-content/uploads/2014/03/rfd22123_r403_b001_sch.pdf&embedded=true" 
+style="width:800px; height:550px;" frameborder="0"></iframe>
+
+
+The solution is to use a true servo shield which provides the proper PWM handling.  In that way, the controller would only need to write two registers (width, period) per servo.  Adafruit provides such a board which I have but its out of scope of this project.
+
+*Note:  Another possible solution is to use the RFduino and servo shield without the BLE, but in my opinion, it is an inferior design because you are using a micro controller to perform very simple but real time hardware task.
+
+###Conclusion
+This post shows you how to connect an Iphone to and RFduino and servo shield.  I love how this project is so self contained.  You can easily imagine how the parts can easily fit into a robotic system which is not tethered to any stationary devices for power or control.  Although this project proved to be a tad flawed, if an improved servo shield was used, the project would be quite successful.  Maybe I will do this and update this writeup in the future, but for now...
 On to my next robot project.
+
+Do cool things.
 
 <meta itemprop="name" content="Make an RFduino Servo Controller" />
 <meta itemprop="image" content="https://michaeljcarey.github.io/images/custom/rfduino/rfDuSetup25.jpg" />

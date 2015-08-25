@@ -7,10 +7,10 @@ author: Michael J Carey
 categories: [arduino, embedded]
 ---
 
-An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  They also make available a small assortment of tiny stackable shields including USB, battery, buttons, relays and servo shields so that you can make a number of cool projects.  The website provides documentation and apps for demonstration, but I thought I could show you how I set up my projects in one concise document.
+An RFduino is a tiny fingertip sized Arduino that features wireless Bluetooth.  They also make available a small assortment of tiny stackable shields including USB, battery, buttons, relays and servo shields so that you can make a number of cool projects.  The website provides documentation and apps for demonstration, but I thought I could show you how I set up my projects in one concise document.
 <!-- more -->
 
-For starters, I purchased the standard RFduino RFD22102 with wireless bluetooth. But in order to download any sketches into this arduino, I also needed the RFD22121 USB Shield.  This shield is also an easy way to provide power to the rfduino as I can power everything through a USB charger or power pack.
+For starters, I purchased the standard RFduino RFD22102 with wireless Bluetooth . But in order to download any sketches into this Arduino, I also needed the RFD22121 USB Shield.  This shield is also an easy way to provide power to the rfduino as I can power everything through a USB charger or power pack.
 
 [{% img http://www.rfduino.com/wp-content/uploads/2014/03/RFD22102.Prospective.Top_.png 350 350 RFduino RFD22102 %}](http://www.rfduino.com/product/rfd22102-rfduino-dip/index.html)
 [{% img http://www.rfduino.com/wp-content/uploads/2014/03/RFD22121.Prospective.Top_.png 350 350 RFduino RFD22121 %}](http://www.rfduino.com/product/rfd22121-usb-shield-for-rfduino/index.html)
@@ -32,7 +32,7 @@ Now go to Tools/Port and configure that.  On my Linux machine, it appears as: /d
 
 You may also need a <a href="http://www.ftdichip.com/Drivers/VCP.htm">Virtual COM Port Driver</a>.
 
-Finally, for Linux, I entered : 
+Finally, for Linux, enter: 
 ``` ruby from Linux console https://michaeljcarey.github.io Source Article
 sudo apt-get install default-jre.
 ```

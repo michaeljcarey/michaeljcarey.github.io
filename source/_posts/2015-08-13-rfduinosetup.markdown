@@ -7,10 +7,10 @@ author: Michael J Carey
 categories: [arduino, embedded]
 ---
 
-An RFDuino is a tiny fingertip sized Arduino that features wireless bluetooth.  They also make available a small assortment of tiny stackable shields including USB, battery, buttons, relays and servo shields so that you can make a number of cool projects.  The website provides documentation and apps for demonstration, but I thought I could show you how I set up my projects in one concise document.
+An RFduino is a tiny fingertip sized Arduino that features wireless Bluetooth.  They also make available a small assortment of tiny stackable shields including USB, battery, buttons, relays and servo shields so that you can make a number of cool projects.  The website provides documentation and apps for demonstration, but I thought I could show you how I set up my projects in one concise document.
 <!-- more -->
 
-For starters, I purchased the standard RFduino RFD22102 with wireless bluetooth. But in order to download any sketches into this arduino, I also needed the RFD22121 USB Shield.  This shield is also an easy way to provide power to the rfduino as I can power everything through a USB charger or power pack.
+For starters, I purchased the standard RFduino RFD22102 with wireless Bluetooth . But in order to download any sketches into this Arduino, I also needed the RFD22121 USB Shield.  This shield is also an easy way to provide power to the RFduino as I can power everything through a USB charger or power pack.
 
 [{% img http://www.rfduino.com/wp-content/uploads/2014/03/RFD22102.Prospective.Top_.png 350 350 RFduino RFD22102 %}](http://www.rfduino.com/product/rfd22102-rfduino-dip/index.html)
 [{% img http://www.rfduino.com/wp-content/uploads/2014/03/RFD22121.Prospective.Top_.png 350 350 RFduino RFD22121 %}](http://www.rfduino.com/product/rfd22121-usb-shield-for-rfduino/index.html)
@@ -20,11 +20,11 @@ For my development system, I ventured over to the <a href="https://www.arduino.c
 sudo apt-get update && sudo apt-get install arduino arduino-core
 ```
 
-In my case, it is installed in /opt/arduino-1.6.3/ folder but I linked the arduino binary to my desktop.  Because it is a binary executable that I click from my desktop, I must tell my OS that I wish to run and not edit or view it.  I can do this by right clicking on the arduino icon and selecting properties.  Under the permissions tab, I selected the check box for 'Allow executing file as program'.
+In my case, it is installed in /opt/arduino-1.6.3/ folder but I linked the Arduino binary to my desktop.  Because it is a binary executable that I click from my desktop, I must tell my OS that I wish to run and not edit or view it.  I can do this by right clicking on the Arduino icon and selecting properties.  Under the permissions tab, I selected the check box for 'Allow executing file as program'.
 
 {% img /images/custom/rfduino/ardProp.png 550 450 Enable Executable to Run %}
 
-The arduino software does not natively recognize the RFduino so there are some steps to download the RFduino code.  The RFduino site documents the <a href="https://github.com/RFduino/RFduino/blob/master/README.md">installation procedure</a> so after you install the Arduino software, go to File/Preferences and add http://rfduino.com/package_rfduino_index.json to Additional Board Manager URLs and save.
+The Arduino software does not natively recognize the RFduino so there are some steps to download the RFduino code.  The RFduino site documents the <a href="https://github.com/RFduino/RFduino/blob/master/README.md">installation procedure</a> so after you install the Arduino software, go to File/Preferences and add http://rfduino.com/package_rfduino_index.json to Additional Board Manager URLs and save.
 
 Now open Tools/Board/Board Manager, and select RFduino at the end of the list and click install.
 After that, select the RFduino will will now appear in the Tools/Board menu
@@ -37,14 +37,14 @@ Finally, for Linux, enter:
 sudo apt-get install default-jre.
 ```
 
-With that installed, connect the USB shield to the RFDuino and insert it into the computer.
+With that installed, connect the USB shield to the RFduino and insert it into the computer.
 {% img /images/custom/rfduino/rfDuSetup25.jpg Downloading to RFduino %}
 
 Navigate to File/Examples/RFduinoBLE and select the Temperature example sketch.  Then File/Upload to compile, upload and begin execution.
 
-From an IPhone, go to the Apple App Store and search for RFduino Temperature and install it.
+From an Iphone, go to the Apple App Store and search for RFduino Temperature and install it.
 
-Now open the IPhone Temperature app and it should automatically find the RFduino.  Click on the RFduino Text and the temperature should be displayed.
+Now open the Iphone Temperature app and it should automatically find the RFduino.  Click on the RFduino Text and the temperature should be displayed.
 
 {% img left /images/custom/rfduino/rfDuFound.png 350 350 RFduino Devices Fount %}
 {% img right /images/custom/rfduino/rfDuTemp.png 350 350 RFduino Temperature Screen %}

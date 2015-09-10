@@ -144,3 +144,30 @@ Congratulations, you have just made a super tiny and simple web server using ver
 Go ahead and do cool stuff.
 
 
+<meta itemprop="name" content="The World's Simplest Web Server" />
+<meta itemprop="image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrv.gif" />
+<meta itemprop="description" content="Turn your Raspberry Pi into the world's simplest web server using cool technologies like AJAX, Sockets, Java, Javascript and PHP." />
+
+<meta name="description" content="Turn your Raspberry Pi into the world's simplest web server using cool technologies like AJAX, Sockets, Java, Javascript and PHP." />
+<meta name="author" content="Michael J Carey" />
+<!-- 
+<meta property="article:author" content="[ GOOGLE+ AUTHOR URL ]" />
+-->
+<meta property="article:published_time" content="2015-09-10 20:45:18 UTC" />
+<meta property="article:section" content="Raspberry Pi Web Server" />
+
+<meta property="og:title" content="The World's Simplest Web Server" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Turn your Raspberry Pi into the world's simplest web server using cool technologies like AJAX, Sockets, Java, Javascript and PHP." />
+<meta property="og:image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrv.gif" />
+<meta property="og:url" content="https://michaeljcarey.github.io/blog/2015/08/27/rpiwebsrv/" />
+<meta property="og:site_name" content="michaeljcarey.github.io" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The World's Simplest Web Server">
+<meta name="twitter:description" content="Turn your Raspberry Pi into the world's simplest web server using cool technologies like AJAX, Sockets, Java, Javascript and PHP.">
+<meta name="twitter:image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrv.gif">
+<meta name="twitter:url" content="https://michaeljcarey.github.io/blog/2015/08/27/rpiwebsrv/">
+
+
+

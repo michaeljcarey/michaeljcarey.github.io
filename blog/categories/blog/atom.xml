@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | Michael's Software Blog]]></title>
   <link href="http://michaeljcarey.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://michaeljcarey.github.io/"/>
-  <updated>2015-09-01T11:17:41-07:00</updated>
+  <updated>2015-09-10T13:45:05-07:00</updated>
   <id>http://michaeljcarey.github.io/</id>
   <author>
     <name><![CDATA[Michael J Carey]]></name>
@@ -12,6 +12,717 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The World's Simplest Web Server]]></title>
+    <link href="http://michaeljcarey.github.io/blog/2015/08/27/rpiwebsrv/"/>
+    <updated>2015-08-27T11:13:03-07:00</updated>
+    <id>http://michaeljcarey.github.io/blog/2015/08/27/rpiwebsrv</id>
+    <content type="html"><![CDATA[<p>The world is changing and becoming more connected every day and the Internet of Things &lsquo;IoT&rsquo; is taking off like a rocket ship. What if you have an idea for a tiny embedded device and you wanted to control it through your browser or your smart phone? Here is an example of how to do just that. It uses a Raspberry Pi and a tiny program that simply reads the time.  Then it shows how to make a web server that will connect to the program and retrieve the time for any browser to show. Its got to be one of the world&rsquo;s simplest web servers.</p>
+
+<p>In this example, I use a <a>Raspberry Pi</a> running on <a>Linux</a>, but in truth you can use any computer. The embedded program is written in Java and the web server programming is written with PHP, HTML and Javascript. A tiny bit of <a>AJAX</a> is introduced.</p>
+
+<h4>The Basic Idea</h4>
+
+<p>The graphic below shows how these objects are organized. Think about some device that you may want to use. Maybe you want to make a computerized sprinkler system for your yard or maybe you want to make a smart toaster. Those are what I mean when I say &lsquo;device&rsquo;. My simple device doesnt do anything fancy like like monitor a sprinkler system. It will only read the time from its hardware clock and report it to whoever requests it.  I named this program TimeServer and since I am programming it in java, the full name is TimeServer.Jar.</p>
+
+<table> <tr><td>
+<img class="Some name" src="/images/custom/webSrv/webSrv.gif" width="400" title="Block Diagram for the Simple Connected Device" >
+</td></tr>
+<tr><td>Fig. 1- The Simple Connected Device</td></tr>
+</table>
+
+
+<p><br>
+The TimeServer actually does two things. As I already stated, it reads the time but it also needs a way to give to communicate to other things. The easiest and most generic way to communicate with devices is with <a>Sockets</a>. Think of it as like using a telephone line to call someone. The TimeServer just sits there waiting for somebody (or something) to call it and then ask for the time. The TimeServer responds with the time and then hangs up. This is why the graphic shows a TimeModel.java and a SocketServer.java inside of the TimeServer application.</p>
+
+<p>With this approach, we can create any number of programs that can connect to the TimeServer and get the time. Not only that, the programs can be running locally on the same computer as the TimeServer or they can be running on any other external computer (as long as you can connect to the TimeServer across an ethernet connection).</p>
+
+<p>In our example, we are going to have the Web Server create a SocketClient and use that to connect to the TimeServer. We will do this because we want any browser to display our time and browsers ultimately connect to web servers. To be perfectly honest, I am misusing the term Web Server a little bit. We are not actually writing a web server, as they are large complicated programs that are loaded with features. What we are doing is writing script to tell the web server what we want it to do. That is known as <a>server side scripting</a> and we are using <a>PHP</a> as the scripting language. Also included in our PHP scripts is some <a>HTML</a> and <a>Javascript</a>. Browsers speak the language of HTML and Javascript and the Web Server will send all of that over to any browser that initiates a connection.</p>
+
+<h3>The TimeServer App</h3>
+
+<p>My TimeServer consists of four classes.</p>
+
+<ul>
+<li>TimeModel.java - for reading and formatting the time</li>
+<li>SocketServer.java - for handling a socket connection</li>
+<li>TimeServer.java - the logic for reading and handling requests</li>
+<li>TimeServerEntry.java - The main program which launches TimeServer in its own thread</li>
+</ul>
+
+
+<h4>The Time Model</h4>
+
+<p>As you can see below, all TimeModel.java does is read the system time and format it.
+<figure class='code'><figcaption><span>TimeModel.java  (TimeModel.java)</span> <a href='/downloads/code/webSrv/app/TimeModel.java'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">java.text.DateFormat</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Created by Michael Carey on 2/2/2015.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimeModel</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getCurrentDateTime</span><span class="o">(){</span>
+</span><span class='line'>        <span class="n">DateFormat</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SimpleDateFormat</span><span class="o">(</span><span class="s">&quot;yyyy/MM/dd HH:mm:ss&quot;</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">Date</span> <span class="n">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Date</span><span class="o">();</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">dateFormat</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h4>The Socket Server</h4>
+
+<p>The socket server is also quite simple. When it is created, it is given a socket object which it uses to read and write messages (ReadLine and PrintLn).  The only other function is for closing the connection when it is done. Any errors will be output to the console that launched the app.
+<figure class='code'><figcaption><span>SockServer.java  (SockServer.java)</span> <a href='/downloads/code/webSrv/app/SockServer.java'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Created by Michael J Carey on 1/30/2015.</span>
+</span><span class='line'><span class="cm"> * Main socket concepts taken from LMU at</span>
+</span><span class='line'><span class="cm"> * http://cs.lmu.edu/~ray/notes/javanetexamples/</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.net.Socket</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SockServer</span> <span class="o">{</span>
+</span><span class='line'>	<span class="kd">private</span> <span class="n">Socket</span> <span class="n">socket</span><span class="o">;</span>
+</span><span class='line'>	<span class="kd">private</span> <span class="n">BufferedReader</span> <span class="n">input</span><span class="o">;</span>
+</span><span class='line'>	<span class="kd">private</span> <span class="n">PrintWriter</span> <span class="n">output</span><span class="o">;</span>
+</span><span class='line'>	<span class="kd">private</span> <span class="kt">int</span> <span class="n">clientNumber</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="cm">/**</span>
+</span><span class='line'><span class="cm">	* Construct a socket server</span>
+</span><span class='line'><span class="cm">	*/</span>
+</span><span class='line'>	<span class="kd">public</span> <span class="nf">SockServer</span><span class="o">(</span><span class="n">Socket</span> <span class="n">_sock</span><span class="o">,</span> <span class="kt">int</span> <span class="n">_cNum</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>		<span class="k">this</span><span class="o">.</span><span class="na">socket</span> <span class="o">=</span> <span class="n">_sock</span><span class="o">;</span>
+</span><span class='line'>		<span class="k">this</span><span class="o">.</span><span class="na">clientNumber</span> <span class="o">=</span> <span class="n">_cNum</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>		<span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>			<span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">BufferedReader</span><span class="o">(</span>
+</span><span class='line'>							<span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">socket</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+</span><span class='line'>			<span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">PrintWriter</span><span class="o">(</span><span class="n">socket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">(),</span> <span class="kc">true</span><span class="o">);</span>
+</span><span class='line'>			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;connected&quot;</span><span class="o">);</span>
+</span><span class='line'>		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;socket died&quot;</span><span class="o">);</span>
+</span><span class='line'>	<span class="o">}</span>	<span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="c1">// accessors</span>
+</span><span class='line'>	<span class="kd">public</span> <span class="n">String</span> <span class="nf">ReadLine</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>		<span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>			<span class="k">return</span> <span class="n">input</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+</span><span class='line'>		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Error reading client# &quot;</span> <span class="o">+</span> <span class="n">clientNumber</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">);</span>
+</span><span class='line'>		<span class="o">}</span>
+</span><span class='line'>		<span class="k">return</span> <span class="s">&quot;Read Error&quot;</span><span class="o">;</span>
+</span><span class='line'>	<span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">Println</span><span class="o">(</span><span class="n">String</span> <span class="n">_str</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>		<span class="n">output</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">_str</span> <span class="o">+</span> <span class="s">&quot;\n\r&quot;</span><span class="o">);</span>
+</span><span class='line'>		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Error writing to client# &quot;</span> <span class="o">+</span> <span class="n">clientNumber</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">);</span>
+</span><span class='line'>	<span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="c1">// logic</span>
+</span><span class='line'>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">Close</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>		<span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>			<span class="n">socket</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span><span class='line'>		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;socket failed while closing client #  + clientNumber\n&quot;</span><span class="o">);</span>
+</span><span class='line'>		<span class="o">}</span>
+</span><span class='line'>		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;connection with client # &quot;</span> <span class="o">+</span> <span class="n">clientNumber</span> <span class="o">+</span> <span class="s">&quot; closed.\n&quot;</span><span class="o">);</span>
+</span><span class='line'>	<span class="o">}</span>	<span class="c1">// end func</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>	<span class="c1">// end class</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h5>The Time Server</h5>
+
+<p>The TimeServer is really the heart of the app. It has no window or user interface and I want it to run in the background so I made the TimeServer work on its own thread. You can see that the class extends the &lsquo;Thread&rsquo; class which will allow me to do this. The TimeServer also creates instances of the TimeModel and SockServer classes that I have already introduced.</p>
+
+<p>When your class exends the Thead class, you will need to implement the function run() as you see I have done in the source below.
+In my case, the run function is simply a loop that listens for incoming messages from the socket. When it receives a message, it looks for a &ldquo;:&rdquo; and then a &ldquo;1&rdquo;. This is my idea of a super simple command structure. &ldquo;:1&rdquo;, &ldquo;:2&rdquo;, &ldquo;:3&rdquo;, etc. could be three different commands, although only &ldquo;:1&rdquo; is implemented in this demo. When it does get a &ldquo;:1&rdquo;, then it will respond get the time from the TimeModel and write it out to the SockServer.
+<figure class='code'><figcaption><span>TimeServer.java  (TimeServer.java)</span> <a href='/downloads/code/webSrv/app/TimeServer.java'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Created by Michael J Carey on 1/30/2015.</span>
+</span><span class='line'><span class="cm"> * Main socket concepts taken from LMU at</span>
+</span><span class='line'><span class="cm"> * http://cs.lmu.edu/~ray/notes/javanetexamples/</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.net.ServerSocket</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.net.Socket</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kd">class</span> <span class="nc">TimeServer</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+</span><span class='line'>	<span class="n">TimeModel</span> <span class="n">timeModel</span><span class="o">;</span>
+</span><span class='line'>	<span class="n">SockServer</span> <span class="n">sckSrv</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="cm">/**</span>
+</span><span class='line'><span class="cm">	 * Constructs a handler thread for a given socket.</span>
+</span><span class='line'><span class="cm">	 * This thread will accept queries for time and will</span>
+</span><span class='line'><span class="cm">	 * return a formatted time.</span>
+</span><span class='line'><span class="cm">	 */</span>
+</span><span class='line'>	<span class="kd">public</span> <span class="nf">TimeServer</span><span class="o">(</span><span class="n">Socket</span> <span class="n">_sock</span><span class="o">,</span> <span class="kt">int</span> <span class="n">_cNum</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>		<span class="n">timeModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TimeModel</span><span class="o">();</span>
+</span><span class='line'>		<span class="n">sckSrv</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">SockServer</span><span class="o">(</span><span class="n">_sock</span><span class="o">,</span> <span class="n">_cNum</span><span class="o">);</span>
+</span><span class='line'>	<span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="cm">/**</span>
+</span><span class='line'><span class="cm">	 * The run method of this thread.</span>
+</span><span class='line'><span class="cm">	 */</span>
+</span><span class='line'>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;The Time Server is running on new thread&quot;</span><span class="o">);</span>
+</span><span class='line'>		<span class="c1">// repeatedly get commands from the client and process them</span>
+</span><span class='line'>		<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>			<span class="n">String</span> <span class="n">command</span> <span class="o">=</span> <span class="n">sckSrv</span><span class="o">.</span><span class="na">ReadLine</span><span class="o">();</span>
+</span><span class='line'>			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;received from client: &quot;</span> <span class="o">+</span> <span class="n">command</span><span class="o">);</span>
+</span><span class='line'>			<span class="k">if</span> <span class="o">(</span><span class="n">command</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;breaking from while loop\n&quot;</span><span class="o">);</span>
+</span><span class='line'>				<span class="k">break</span><span class="o">;</span>
+</span><span class='line'>			<span class="o">}</span>
+</span><span class='line'>			<span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">&quot;:&quot;</span><span class="o">))</span> <span class="o">{</span>
+</span><span class='line'>				<span class="kt">int</span> <span class="n">location</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+</span><span class='line'>				<span class="k">if</span> <span class="o">(</span><span class="n">location</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>					<span class="n">sckSrv</span><span class="o">.</span><span class="na">Println</span><span class="o">(</span><span class="n">timeModel</span><span class="o">.</span><span class="na">getCurrentDateTime</span><span class="o">());</span>
+</span><span class='line'>					<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;time was printed&quot;</span><span class="o">);</span>
+</span><span class='line'>				<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>					<span class="n">sckSrv</span><span class="o">.</span><span class="na">Println</span><span class="o">(</span><span class="s">&quot;huh? only 1 is supported.\r&quot;</span><span class="o">);</span>
+</span><span class='line'>				<span class="o">}</span>
+</span><span class='line'>			<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>				<span class="n">sckSrv</span><span class="o">.</span><span class="na">Println</span><span class="o">(</span><span class="s">&quot;what? I only understand colons.\r&quot;</span><span class="o">);</span>
+</span><span class='line'>			<span class="o">}</span>
+</span><span class='line'>		<span class="o">}</span>	<span class="c1">// end while</span>
+</span><span class='line'>		<span class="n">sckSrv</span><span class="o">.</span><span class="na">Close</span><span class="o">();</span>
+</span><span class='line'>	<span class="o">}</span>	<span class="c1">// end func</span>
+</span><span class='line'><span class="o">}</span>	<span class="c1">// end class</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h4>The Entry Point (The Main)</h4>
+
+<p>The entry point is really just a way to start my app. It creates a ServerSocket on <a>port</a> number 444 and then enters a loop where it listens for connections. When it gets a connection, it accepts it and creates a new TimeServer object which will be launched on its own thread. The start() call is what kicks off the thread&rsquo;s run() function.
+<figure class='code'><figcaption><span>TimeServerEntry.java  (TimeServerEntry.java)</span> <a href='/downloads/code/webSrv/app/TimeServerEntry.java'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">java.net.ServerSocket</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimeServerEntry</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span><span class='line'>		<span class="kt">int</span> <span class="n">clientNumber</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>		<span class="kt">int</span> <span class="n">portNum</span> <span class="o">=</span> <span class="mi">444</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>		<span class="n">ServerSocket</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ServerSocket</span><span class="o">(</span><span class="mi">444</span><span class="o">);</span>
+</span><span class='line'>		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Welcome to Tiny Web Server: The Socket Server is running&quot;</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>		<span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>			<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>				<span class="k">new</span> <span class="nf">TimeServer</span><span class="o">(</span><span class="n">listener</span><span class="o">.</span><span class="na">accept</span><span class="o">(),</span> <span class="n">clientNumber</span><span class="o">++).</span><span class="na">start</span><span class="o">();</span>
+</span><span class='line'>			<span class="o">}</span>
+</span><span class='line'>		<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span><span class='line'>			<span class="n">listener</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span><span class='line'>		<span class="o">}</span>
+</span><span class='line'>	<span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><br></p>
+
+<h3>The Web Server Script</h3>
+
+<p>Whenever a browser connects with a web server, the web server will (if on Linux) go to /var/www and look for index.htm to pass on to the browser. But in this case, I have placed a php file named <a>index.php</a> along with some other files into the <a>/var/www</a> directory.
+These files are:</p>
+
+<ul>
+<li>index.php - standard html and javascript for output to browsers</li>
+<li>getTime.php - script for creating a socket and communicating with the TimeServer</li>
+<li>header.php - standard header</li>
+<li>admin.css - some formatting</li>
+</ul>
+
+
+<p>Fig 2. shows what the browser will initially dislplay</p>
+
+<table><tr><td>
+<img class="Some name" src="/images/custom/webSrv/TimeServerInit.png" width="800" title="Image from browser" >
+</td></tr>
+<tr><td>Fig. 2- Initial Output to Browser</td></tr>
+</table>
+
+
+<p><br></p>
+
+<h4>header.php</h4>
+
+<p>The header is pretty standard. It describes basic information for the browser such as the html version and some metadata.  It also includes our admin.css file. The admin.css file (not shown) defines what colors and styles you want html objects like buttons and text fields to be. Our header.php is loaded by the index.php file.
+<figure class='code'><figcaption><span>header.php  (header.php)</span> <a href='/downloads/code/webSrv/www/header.php'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;&gt;</span>
+</span><span class='line'><span class="nt">&lt;HEAD&gt;</span>
+</span><span class='line'><span class="nt">&lt;TITLE&gt;</span>Simple TimeServer<span class="nt">&lt;/TITLE&gt;</span>
+</span><span class='line'><span class="nt">&lt;meta</span> <span class="na">content=</span><span class="s">&quot;text/html;charset=utf-8&quot;</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;LINK</span> <span class="na">REL=</span><span class="s">stylesheet</span> <span class="na">HREF=</span><span class="s">&quot;admin.css&quot;</span> <span class="na">TYPE=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h4>index.php</h4>
+
+<p>If you look at the index.php file below, you can see that it is actually written with three different languages. The first three lines are written in php and load the header. The second section is Javascript which will be explained shortly. The bottom section is HTML and defines a table with buttons and text fields. The buttons <a>onClick</a> properties call the above Javascript functions. The text fields are written with the &lsquo;div&rsquo; tag and have id&rsquo;s so that the Javascript can search for them in the <a>document</a> and replace their displayed text.</p>
+
+<p><figure class='code'><figcaption><span>index.php  (index.php)</span> <a href='/downloads/code/webSrv/www/index.php'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;?php </span>
+</span><span class='line'><span class="cp">include(&quot;header.php&quot;); </span>
+</span><span class='line'><span class="cp">?&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">language=</span><span class="s">&quot;javascript&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">timerIsOn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">startStopTimer</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>	<span class="kd">var</span> <span class="nx">myId</span> <span class="o">=</span> <span class="s2">&quot;myTimeStream&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>	<span class="k">if</span> <span class="p">(</span><span class="nx">timerIsOn</span><span class="o">==</span><span class="kc">true</span><span class="p">)</span>  <span class="p">{</span>			<span class="c1">// if timer is on</span>
+</span><span class='line'>		<span class="nx">timerIsOn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>				<span class="c1">// toggle timer flag to off</span>
+</span><span class='line'>		<span class="nx">clearInterval</span><span class="p">(</span><span class="nx">myTimer</span><span class="p">);</span>
+</span><span class='line'>		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">myId</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span> <span class="s2">&quot;Halted&quot;</span><span class="p">;</span>
+</span><span class='line'>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>											<span class="c1">// else if timer is off</span>
+</span><span class='line'>		<span class="nx">timerIsOn</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>					<span class="c1">// toggle timer flag to on</span>
+</span><span class='line'>		<span class="nx">myTimer</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">loadXMLDoc</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+</span><span class='line'>		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">myId</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span> <span class="s2">&quot;Running&quot;</span><span class="p">;</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">function</span> <span class="nx">loadXMLDoc</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>	<span class="kd">var</span> <span class="nx">xmlhttp</span><span class="p">;</span>
+</span><span class='line'>	<span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">XMLHttpRequest</span><span class="p">)</span>	<span class="p">{</span> <span class="c1">// code for IE7+, Firefox, Crome, Opera, Safari</span>
+</span><span class='line'>		<span class="nx">xmlhttp</span><span class="o">=</span><span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+</span><span class='line'>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// code for IE6, IE5</span>
+</span><span class='line'>		<span class="nx">xmlhttp</span><span class="o">=</span><span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s2">&quot;Microsoft.XMLHTP&quot;</span><span class="p">);</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'>	<span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span><span class="o">=</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>		<span class="k">if</span> <span class="p">(</span><span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">readyState</span><span class="o">==</span><span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">status</span><span class="o">==</span><span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>			<span class="kd">var</span> <span class="nx">myId</span><span class="p">;</span>
+</span><span class='line'>			<span class="k">if</span> <span class="p">(</span><span class="nx">state</span> <span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>	
+</span><span class='line'>				<span class="nx">myId</span><span class="o">=</span><span class="s2">&quot;myTime&quot;</span><span class="p">;</span>
+</span><span class='line'>			<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">state</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>				<span class="nx">myId</span><span class="o">=</span><span class="s2">&quot;func2&quot;</span><span class="p">;</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>			<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">myId</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">responseText</span><span class="p">;</span>
+</span><span class='line'>		<span class="p">}</span>
+</span><span class='line'>	<span class="p">}</span>	<span class="c1">// end func pointer</span>
+</span><span class='line'>	<span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;getTime.php?state=&quot;</span> <span class="o">+</span> <span class="nx">state</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>	<span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nt">&lt;/script&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;TABLE&gt;</span>
+</span><span class='line'><span class="nt">&lt;TR&gt;&lt;TH</span> <span class="na">colspan=</span><span class="s">2</span><span class="nt">&gt;</span>Time Web Server Demo<span class="nt">&lt;/TH&gt;&lt;/TR&gt;</span>
+</span><span class='line'><span class="nt">&lt;TR&gt;&lt;TH&gt;</span>Action<span class="nt">&lt;/TH&gt;&lt;TH&gt;</span>Description<span class="nt">&lt;/TH&gt;&lt;/TR&gt;</span>
+</span><span class='line'><span class="nt">&lt;TR&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;TD&gt;&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&#39;Get Once&#39;</span> <span class="na">onClick=</span><span class="s">&quot;loadXMLDoc(1)&quot;</span> <span class="nt">&gt;&lt;/TD&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;TD&gt;&lt;div</span> <span class="na">id=</span><span class="s">&quot;myTime&quot;</span><span class="nt">&gt;&lt;a&gt;</span> Disconnected <span class="nt">&lt;/a&gt;&lt;/div&gt;&lt;/TD&gt;</span>
+</span><span class='line'><span class="nt">&lt;/TR&gt;</span>
+</span><span class='line'><span class="nt">&lt;TR&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;TD&gt;&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&#39;Observe Time&#39;</span> <span class="na">onClick=</span><span class="s">&quot;startStopTimer()&quot;</span> <span class="nt">&gt;&lt;/TD&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;TD&gt;&lt;div</span> <span class="na">id=</span><span class="s">&quot;myTimeStream&quot;</span><span class="nt">&gt;&lt;a&gt;</span> Push to Continually Update<span class="nt">&lt;/a&gt;&lt;/div&gt;&lt;/TD&gt;</span>
+</span><span class='line'><span class="nt">&lt;/TR&gt;</span>
+</span><span class='line'><span class="nt">&lt;TR&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;TD&gt;&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&#39;Call Another Function&#39;</span> <span class="na">onClick=</span><span class="s">&quot;loadXMLDoc(2)&quot;</span> <span class="nt">&gt;&lt;/TD&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;TD&gt;&lt;div</span> <span class="na">id=</span><span class="s">&quot;func2&quot;</span><span class="nt">&gt;&lt;a&gt;</span> Not Supported <span class="nt">&lt;/a&gt;&lt;/div&gt;&lt;/TD&gt;</span>
+</span><span class='line'><span class="nt">&lt;/TR&gt;</span>
+</span><span class='line'><span class="nt">&lt;/TABLE&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Look in the HTML section and find the first button.  You can see that its onclick property will call the loadXMLDoc function and pass a 1 as a parameter. Now look up in the Javascript section and find the loadXMLDoc(state) function.
+<code>html
+&lt;TR&gt;
+  &lt;TD&gt;&lt;input type="button" value='Get One Time' onClick="loadXMLDoc(1)" &gt;&lt;/TD&gt;
+  &lt;TD&gt;&lt;div id="myTime"&gt;&lt;a&gt;Disconnected&lt;/a&gt;&lt;/div&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+</code></p>
+
+<p>The function <a>loadXMLDoc</a> first creates a <a>XMLHttpRequest</a> object. This powerful Javascript object provides an easy way to retrieve data from a URL and update just a part of the page without having to do a full page refresh. This object is the basis for <a>AJAX</a> programming.</p>
+
+<p>It then sets an inline function to the XMLHttpRequest&rsquo;s <a>onreadystatechange</a> event. This event will be fired and the function will be invoked when the TimeServer response is ready to be processed. The function itself looks into the html document and finds the element by the id. In this example; it searches for the object with the id &ldquo;myTime&rdquo; and then replaces the objects text with the TimeServer&rsquo;s response text.</p>
+
+<p>Next, we want to use the XMLHttpRequest to send a request to the TimeServer to retrieve the time.  To do this, we need to use the open method to specify the type of request, the URL and whether the request is syncronous or not. Then we need to call send like so:
+<code>javascript
+  xmlhttp.open("GET", "getTime.php?state=" + state.toString(), true);
+  xmlhttp.send();
+</code></p>
+
+<h4>getTime.php</h4>
+
+<p>Once the user presses the button, the GET is called on getTime.php and the parameter &ldquo;1&rdquo; is passsed in and stored in the property $s. Then the code switches on $s and runs case &ldquo;1&rdquo;. The codeblock of case 1 creates a client socket and connects to the <a>localhost</a> on port 444 which is the TimeServer App. If everything is successfull, we form the message to send &ldquo;:1&rdquo; and call socket_write. After we are sure that the entire message is written, we call socket_read and set the return value into $rdVal. We <a>echo</a> the result, shutdown the socket and then close it.</p>
+
+<p><figure class='code'><figcaption><span>getTime.php  (getTime.php)</span> <a href='/downloads/code/webSrv/www/getTime.php'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>	<span class="nv">$s</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">];</span>
+</span><span class='line'>	<span class="c1">//echo &quot;here&quot; .$s;</span>
+</span><span class='line'>	
+</span><span class='line'>	<span class="k">switch</span> <span class="p">(</span><span class="nv">$s</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>		<span class="k">case</span> <span class="s2">&quot;0&quot;</span><span class="o">:</span>
+</span><span class='line'>			<span class="k">echo</span> <span class="s2">&quot;open clock server program&quot;</span><span class="p">;</span>
+</span><span class='line'>			<span class="k">break</span><span class="p">;</span>
+</span><span class='line'>			
+</span><span class='line'>		<span class="k">case</span> <span class="s2">&quot;1&quot;</span> <span class="o">:</span>
+</span><span class='line'>			<span class="nv">$host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span><span class="c1">//&quot;192.168.1.131&quot;; //gethostbyname(&quot;www.example.com&quot;);</span>
+</span><span class='line'>			<span class="nv">$port</span> <span class="o">=</span> <span class="mi">444</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>			<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nv">$clientSck</span> <span class="o">=</span> <span class="nb">socket_create</span><span class="p">(</span><span class="nx">AF_INET</span><span class="p">,</span> <span class="nx">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">)</span> <span class="p">{</span> <span class="c1">// no apparent error</span>
+</span><span class='line'>				<span class="nv">$errorcode</span> <span class="o">=</span> <span class="nb">socket_last_error</span><span class="p">();</span>
+</span><span class='line'>				<span class="nv">$errormsg</span> <span class="o">=</span> <span class="nb">socket_strerror</span><span class="p">(</span><span class="nv">$errorcode</span><span class="p">);</span>
+</span><span class='line'>				<span class="k">die</span><span class="p">(</span><span class="s2">&quot;Could not create socket: [</span><span class="si">$errorcode</span><span class="s2">] </span><span class="si">$errormsg</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>			<span class="c1">//echo &quot;created&quot;;</span>
+</span><span class='line'>
+</span><span class='line'>			<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nv">$result</span> <span class="o">=</span> <span class="nb">socket_connect</span><span class="p">(</span><span class="nv">$clientSck</span><span class="p">,</span> <span class="nv">$host</span><span class="p">,</span> <span class="nv">$port</span><span class="p">))</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>				<span class="k">echo</span> <span class="s2">&quot;socket_connect() failed, reason: &quot;</span><span class="o">.</span><span class="nb">socket_strerror</span><span class="p">(</span><span class="nb">socket_last_error</span><span class="p">())</span><span class="o">.</span><span class="s2">&quot; </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>				<span class="k">die</span><span class="p">(</span><span class="s2">&quot;Could not connnect to server</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>			<span class="c1">//echo &quot;connected&quot;;</span>
+</span><span class='line'>		
+</span><span class='line'>			<span class="nv">$msg</span> <span class="o">=</span> <span class="s2">&quot;:1&quot;</span> <span class="o">.</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span class='line'>			<span class="nv">$len</span> <span class="o">=</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$msg</span><span class="p">);</span>
+</span><span class='line'>			<span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>				<span class="nv">$sent</span> <span class="o">=</span> <span class="nb">socket_write</span><span class="p">(</span><span class="nv">$clientSck</span><span class="p">,</span> <span class="nv">$msg</span><span class="p">,</span> <span class="nv">$len</span><span class="p">);</span>
+</span><span class='line'>				<span class="k">if</span> <span class="p">(</span><span class="nv">$sent</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>					<span class="k">break</span><span class="p">;</span>
+</span><span class='line'>				<span class="p">}</span>
+</span><span class='line'>				
+</span><span class='line'>				<span class="k">if</span> <span class="p">(</span><span class="nv">$sent</span> <span class="o">&lt;</span> <span class="nv">$len</span><span class="p">)</span> <span class="p">{</span>			<span class="c1">// check until entire message is sent</span>
+</span><span class='line'>					<span class="nv">$msg</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$msg</span><span class="p">,</span> <span class="nv">$sent</span><span class="p">);</span>	<span class="c1">// continue getting the message</span>
+</span><span class='line'>					<span class="nv">$len</span> <span class="o">-=</span> <span class="nv">$sent</span><span class="p">;</span>
+</span><span class='line'>				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>					<span class="k">break</span><span class="p">;</span>
+</span><span class='line'>				<span class="p">}</span>
+</span><span class='line'>			<span class="p">}</span>
+</span><span class='line'>			<span class="c1">//echo &quot;written&quot;;</span>
+</span><span class='line'>
+</span><span class='line'>			<span class="nv">$rdVal</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>			<span class="nv">$rdVal</span> <span class="o">=</span> <span class="nb">socket_read</span><span class="p">(</span><span class="nv">$clientSck</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="nx">PHP_NORMAL_READ</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>			<span class="k">echo</span> <span class="s2">&quot;Output: &quot;</span> <span class="o">.</span> <span class="nv">$rdVal</span><span class="p">;</span>
+</span><span class='line'>			<span class="nb">socket_shutdown</span><span class="p">(</span><span class="nv">$clientSck</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>		<span class="c1">// housekeeping</span>
+</span><span class='line'>			<span class="nb">socket_close</span><span class="p">(</span><span class="nv">$clientSck</span><span class="p">);</span>
+</span><span class='line'>			<span class="k">break</span><span class="p">;</span>
+</span><span class='line'>			
+</span><span class='line'>		<span class="k">case</span> <span class="s2">&quot;2&quot;</span> <span class="o">:</span>
+</span><span class='line'>			<span class="k">echo</span> <span class="s2">&quot;You can service other commands in this switch statement&quot;</span><span class="p">;</span>
+</span><span class='line'>			<span class="k">break</span><span class="p">;</span>
+</span><span class='line'>			
+</span><span class='line'>		<span class="k">default</span><span class="o">:</span>
+</span><span class='line'>			<span class="k">echo</span> <span class="nv">$s</span><span class="p">;</span>
+</span><span class='line'>			<span class="k">break</span><span class="p">;</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>The echoed result from getTime.php is captured by the XMLHttpRequest object&rsquo;s GET function. This triggers the <a>onReadyStateChange</a> event to fire and run our defined function(). Remember, the function searches our document for the element with the id of &ldquo;myTime&rdquo; and copies the responseText (from the echo) into the element&rsquo;s <a>innerHTML</a> thereby replacing the displayed text.</p>
+
+<h4>Get Continual Time Updates</h4>
+
+<p>In order to get the time to update automatically, we have to create a timer in Javascript. The second button&rsquo;s onClick method calls the Javascript startStopTimer().  Here, we evaluate a flag called <a>timerIsOn</a> to decide whether to start or stop the timer.
+If the timer is on, then we toggle the flag to off, then call <a>clearInterval</a> to stop the timer and then search the document for the element with the id of &ldquo;myTimeStream&rdquo; and replace the text with &ldquo;Halted&rdquo;.</p>
+
+<p>If the timer is off, then we toggle the flag to on and then start the timer with the call <a>setInterval</a> and pass in a function pointer and the desired interval (in milliseconds). This simply means that the function will be called at the desired interval while the timer is running. Finally, we search for the element with the id of &ldquo;myTimeStream&rdquo; and replace the text with &ldquo;Running&rdquo;.</p>
+
+<p>In our case, we call loadXMLDoc(1) every second and as a result, you should see the time update every second.</p>
+
+<table><tr><td>
+<img class="Some name" src="/images/custom/webSrv/TimeServer.png" width="800" title="Image from browser" >
+</td></tr>
+<tr><td>Fig. 3- Output to Browser</td></tr>
+</table>
+
+
+<p><br></p>
+
+<h3>Putting it All Together</h3>
+
+<p>Compile the java project and export as a <a>jar</a> file. I compiled the project on my laptop and copied it to a projects folder on my raspberry pi.
+Then open a terminal and navigate to the folder where your jar file is located.  Then launch the TimeServer with the following command.
+<code>bash
+java -jar myJavaProject.jar
+</code></p>
+
+<p>You should see the output on your terminal.
+To test your project, you can open your browser on the raspberry pi and type localhost in the url. You should see the initial dislay. I could not get the browsers on the raspberry pi to actually work. I am guessing that these browsers are not fully capable since the raspberry pi si such a small computer. But at least you should be able to see the initial display of the buttons and text.</p>
+
+<p>Now open a browser on an different computer on the same network as the raspberry pi and type the ip address into the URL. Again, you should see the initial screen. Press the Button labeled &lsquo;Get Once&rsquo; and watch the time update. Then press the button labeled &lsquo;Observe Time&rsquo;. The description should toggle to &lsquo;Running&rsquo; and the Time should update continuously. If you press the button again, then the updates should stop.</p>
+
+<h3>Summary</h3>
+
+<p>Congratulations, you have just made a super tiny and simple web server using very inexpensive hardware. You can now add more functionality to your java program and extend the web page and make anything you desire. Go ahead and make your sprinkler system or security camera or whatever.  You will be able to interact with your device using the browser on your cell phone or desktop.</p>
+
+<p>Go ahead and do cool stuff.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Blogging Basics III, Make Your Octopress Blog Active with Comments, Analytics and Product Links]]></title>

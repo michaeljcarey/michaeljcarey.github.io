@@ -1,0 +1,57 @@
+BODY {
+	font-family : Arial, verdana, Helvetica, sans-serif;
+	background-color : Gray;
+	color : Silver;
+}
+A:ACTIVE {
+	color : #003333;
+}
+A:LINK {
+	color : #003333;
+}
+A:VISITED {
+	color : #003333;
+}
+P {
+	font-family : Arial, verdana, Helvetica, sans-serif;
+	font-size : 10pt;
+	vertical-align : top;
+}
+TR {
+	text-align : left;
+	background-color : #666699;
+}
+TD {
+	font-family : Arial, verdana, Helvetica, sans-serif;
+	font-size : 11pt;
+	vertical-align : top;
+	background-color : #666699;
+}
+TH {
+	font-size : 11pt;
+	background-color : #006666;
+	font-style : italic;
+}
+TH.TITLE {
+	font-size : 12pt;
+	background-color : #006666;
+	font-style : normal;
+	text-align : center;
+}
+H1 {
+	font-family : Arial, Helvetica, sans-serif;
+	color : Black;
+	font-size : large;
+}
+.Name {
+	font-size : 12pt; }
+.small {
+	font-size : 8pt; }
+input {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+}
+textarea {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 9pt;
+}

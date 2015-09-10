@@ -145,7 +145,7 @@ Go ahead and do cool things.
 
 
 <meta itemprop="name" content="The World's Simplest Web Server" />
-<meta itemprop="image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrvCrop.gif" />
+<meta itemprop="image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrvCrop.jpg" />
 <meta itemprop="description" content="Turn your Raspberry Pi into the world's simplest web server using cool technologies like AJAX, Sockets, Java, Javascript and PHP." />
 
 <meta name="description" content="Turn your Raspberry Pi into the world's simplest web server using cool technologies like AJAX, Sockets, Java, Javascript and PHP." />
@@ -159,14 +159,14 @@ Go ahead and do cool things.
 <meta property="og:title" content="The World's Simplest Web Server" />
 <meta property="og:type" content="article" />
 <meta property="og:description" content="Turn your Raspberry Pi into the world's simplest web server using cool technologies like AJAX, Sockets, Java, Javascript and PHP." />
-<meta property="og:image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrvCrop.gif" />
+<meta property="og:image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrvCrop.jpg" />
 <meta property="og:url" content="https://michaeljcarey.github.io/blog/2015/08/27/rpiwebsrv/" />
 <meta property="og:site_name" content="michaeljcarey.github.io" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The World's Simplest Web Server">
 <meta name="twitter:description" content="Turn your Raspberry Pi into the world's simplest web server using cool technologies like AJAX, Sockets, Java, Javascript and PHP.">
-<meta name="twitter:image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrvCrop.gif">
+<meta name="twitter:image" content="https://michaeljcarey.github.io/images/custom/webSrv/webSrvCrop.jpg">
 <meta name="twitter:url" content="https://michaeljcarey.github.io/blog/2015/08/27/rpiwebsrv/">
 
 

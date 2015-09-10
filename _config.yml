@@ -111,6 +111,9 @@ google_analytics_tracking_id: UA-66060669-1
 # Facebook Like
 facebook_like: true
 
+# LinkedIn Share
+linkedin_share: true
+
 youtube:
   api_key:  AIzaSyAFOo_CAVMjQFD5O9lZj8g_-AbhqWzWF3Y
 
